@@ -8,7 +8,7 @@
           <h1 class="jumbotron-heading">Ludema</h1>
           <p class="lead text-muted">LUDEMA est une Société par Actions Simplifiées employés dont la présidente est Céline De Prins et le Directeur Général Mathieu VERGNAULT. Le siège social est situé aux 49 rues de Paris, 95310 Saint Ouen l’Aumône.</p>
           <p>
-            <a href="#" class="btn btn-primary my-2">Nouveaux Tests</a>
+            <a href="?controller=listeTest&action=listeTest" class="btn btn-primary my-2">Nouveaux Tests</a>
             <a href="#" class="btn btn-secondary my-2">Consulter Tests</a>
           </p>
         </div>

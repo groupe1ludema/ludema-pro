@@ -42,4 +42,26 @@ class Model {
             self::$instance = new Model();
         return self::$instance;
     }
+
+    public function get_all_tests(){
+		try{
+			$requete = $this->bd->prepare('Select Nom, Categorie from TEST');
+			$requete->execute();
+			return $requete->fetchAll();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_all_tests, erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function get_category(){
+		try{
+			$requete = $this->bd->prepare('Select distinct Categorie from TEST');
+			$requete->execute();
+			return $requete->fetchAll(PDO::FETCH_COLUMN);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
 }
