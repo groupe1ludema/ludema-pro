@@ -22,6 +22,16 @@ h2 {
   color: #fff;
 }
 
+.logo{
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+}
+
+.logoAcc{
+  width:320px;
+}
+
 /* ------------------------------------- */
 :root {
   --jumbotron-padding-y: 3rem;
@@ -98,7 +108,7 @@ footer p {
   padding: 15px 15px 15px 45px;
   font-size: 18px;
   border-bottom: 1px solid #ccc;
-  color: #2285BA;  /* menu sélectionné*/ 
+  color: #2285BA;  /* menu sélectionné*/
   position: relative;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -128,4 +138,21 @@ footer p {
 .submenuItems a:hover {
   background-color: #CDDC39;
   color: #fff;
+}
+
+.btn_valider{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #fff;/*ButtonColor*/
+    color: #2285BA;
+    border-bottom: solid 4px #727272;
+    border-radius: 3px;
+}
+.btn_valider:active {/*OnClick*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*Move down*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*Reduce Shadow*/
+    border-bottom: none;
 }
