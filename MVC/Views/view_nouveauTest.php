@@ -1,5 +1,5 @@
-  <?php require("view_begin.php"); ?>
-	
+<?php require("view_begin.php"); ?>
+
 <ul class="accordion-menu">
 	 <?php foreach ($listeCategory as $category): ?>
   <li>
@@ -7,12 +7,12 @@
     <ul class="submenuItems">
       <?php foreach ($listeTest as $test): ?>
         <?php if($test['Categorie']==e($category)): ?>
-        <li><a href="#"><?= e($test['Nom']) ?> </a></li>
+        <li><a href="?controller=listeTest&action=choixtest&categorie=<?= e(urlencode($test['Nom']))?>"><?= e($test['Nom']) ?> </a></li>
         <?php endif ?>
       <?php endforeach ?>
     </ul>
   </li>
- 	 <?php endforeach ?> 
+ 	 <?php endforeach ?>
 
 </ul>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>

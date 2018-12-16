@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equip="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet"
+  	href="htpps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script
+  	src="https://ajax.googleapis.com/ajax/libs/3.2.1/jquery.min.js">
+  	</script>
+  	<script
+  	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	  </script>
       <link rel="icon" href="Images/Ludema%20LOGO.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="Content/css/bootstrap.min.css" >
@@ -37,7 +45,7 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <a href="?controller="home"&action="home" class="navbar-brand d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
             <strong>Ludema</strong>
           </a>

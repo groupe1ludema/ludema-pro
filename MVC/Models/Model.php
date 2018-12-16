@@ -64,4 +64,54 @@ class Model {
 			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
 		}
 	}
+
+	public function ajout_choix_test($test){ //Permet d'ajouter à la base de données Panier le test du professionel selectionné
+		try{
+			$v = $this->categorie_selectionne($test);
+			if($v == FALSE){
+				$requete = $this->bd->prepare('INSERT INTO Panier VALUES (:test)');
+				$requete->bindValue(":test",$test);
+				return $requete->execute();
+			}
+			else {
+				return 2;
+			}
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function categorie_selectionne($categorie){
+		try{
+			$requete = $this->bd->prepare('SELECT catgeorie FROM panier where catgeorie = :categorie');
+			$requete->bindValue(":categorie",$categorie);
+			$requete->execute();
+			return $requete->fetch(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function choix_test_ajouté(){
+		try{
+			$requete = $this->bd->prepare('SELECT catgeorie FROM panier');
+			$requete->execute();
+			return $requete->fetchall(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+	public function supprimer_test($categorie){
+		try{
+			$requete = $this->bd->prepare('DELETE FROM panier where catgeorie = :categorie');
+			$requete->bindValue(":categorie",$categorie);
+			return $requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
 }
