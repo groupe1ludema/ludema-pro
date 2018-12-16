@@ -15,7 +15,7 @@ class Controller_listeTest extends Controller {
   }
 
   public function categorie_selectionne($true = []){
-      $m = Model::get_model();
+    $m = Model::get_model();
     $tab = $m->choix_test_ajouté();
     echo "<ul class='accordion-menu'>";
     generer_arbre_testchoisis($tab);

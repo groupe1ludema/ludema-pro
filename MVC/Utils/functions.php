@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Fonction échappant les caractères html dans $message
  * @param  string $message chaîne à échapper
@@ -10,8 +9,8 @@ function e($message){
 	return htmlspecialchars($message, ENT_QUOTES);
 }
 
-function generer_arbre_testchoisis($tab = []){?>
-
+function generer_arbre_testchoisis($tab){?>
+	<!-- Example single danger button -->
 <div class="btn-group">
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Tests sélectionnés
@@ -21,12 +20,12 @@ function generer_arbre_testchoisis($tab = []){?>
 			<a class="dropdown-item" href="#"><?= $val['catgeorie'] ?><a href='?controller=listeTest&action=supprimer_test&categorie=<?= urlencode($val["catgeorie"])?>'>
 			<img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10/></a>
     <?php endforeach ?>
-
-	</div>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="?controller=appliquerTest&action=afficherTest">Validé</a>
+  </div>
 </div>
-<a href="#" class="btn_valider">Valider</a>
 <script src="Content/js/bootstrap.bundle.min.js"></script>
-
+<?php $_SESSION['listTestSelectionnes']=$tab;?>
 <?php
 }
 ?>

@@ -14,7 +14,7 @@ abstract class Controller{
 	 * Constructeur. Lance l'action correspondante
 	 */
 	public function __construct(){
-
+		session_start();
 		//On détermine s'il existe dans l'url un paramètre action correspondant à une action du contrôleur
 		if(isset($_GET['action']) and method_exists($this, "action_" . $_GET["action"]) ){
 			//Si c'est le cas, on appelle cette action
@@ -60,7 +60,7 @@ abstract class Controller{
 			$this->action_error ("La vue n'existe pas !");
 		}
 	}
-	
+
 	/**
 	 * Méthode affichant une page d'erreur
 	 * @param  string $message Message d'erreur à afficher

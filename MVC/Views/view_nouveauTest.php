@@ -1,3 +1,4 @@
+
 <?php require("view_begin.php"); ?>
 
 <ul class="accordion-menu">
@@ -15,9 +16,9 @@
  	 <?php endforeach ?>
 
 </ul>
+<?php require("view_end.php"); ?>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src="Content/js/menuderoulant.js"></script>
 
-<?php require("view_end.php"); ?>
 </body>
 </html>
