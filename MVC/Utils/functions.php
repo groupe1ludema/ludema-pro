@@ -10,7 +10,7 @@ function e($message){
 }
 
 function generer_arbre_testchoisis($tab){?>
-	<!-- Example single danger button -->
+<div class="bg">
 <div class="btn-group">
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Tests sélectionnés
@@ -21,8 +21,9 @@ function generer_arbre_testchoisis($tab){?>
 			<img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10/></a>
     <?php endforeach ?>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="?controller=appliquerTest&action=afficherTest">Validé</a>
+    <a class="dropdown-item" href="?controller=appliquerTest&action=afficherTest">Valider</a>
   </div>
+</div>
 </div>
 <script src="Content/js/bootstrap.bundle.min.js"></script>
 <?php $_SESSION['listTestSelectionnes']=$tab;?>
