@@ -1,6 +1,7 @@
 
 <?php require("view_begin.php"); ?>
-
+<main>
+<div id="ListeDesTests">
 <ul class="accordion-menu">
 	 <?php foreach ($listeCategory as $category): ?>
   <li>
@@ -15,7 +16,7 @@
   </li>
  	 <?php endforeach ?>
 
-</ul>
+</ul></div>
 <?php // require("view_end.php"); ?>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src="Content/js/menuderoulant.js"></script>
