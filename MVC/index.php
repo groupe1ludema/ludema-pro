@@ -4,8 +4,8 @@ require_once("Utils/functions.php"); //Pour avoir la fonction e()
 require_once("Models/Model.php"); //Inclusion du modèle
 require_once("Controllers/Controller.php"); //Inclusion de la classe Controller
 
-$controllers = ["home","listeTest","appliquerTest"]; //Liste des contrôleurs -- A RENSEIGNER
-$controller_default = "home"; //Nom du contrôleur par défaut-- A RENSEIGNER
+$controllers = ["home","listeTest","appliquerTest","connexion"]; //Liste des contrôleurs -- A RENSEIGNER
+$controller_default = "connexion"; //Nom du contrôleur par défaut-- A RENSEIGNER
 
 //On teste si le paramètre controller existe et correspond à un contrôleur de la liste $controllers
 if(isset($_GET['controller']) and in_array($_GET['controller'], $controllers))
