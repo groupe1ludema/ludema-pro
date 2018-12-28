@@ -86,11 +86,9 @@ footer p {
 
 /* ICI SE TROUVE LE CSS DE LA PAGE NOUVEAU TEST */
 
-
 .accordion-menu {
   width: 100%;
   max-width: 350px;
-  margin: 60px auto 20px;
   background: #fff;
   border-radius: 4px;
 }
@@ -142,6 +140,9 @@ footer p {
   color: #3366ff;
 }
 
+.arbreETtestselection{
+  margin-top: 50px;
+}
 /* VUE APPLIQUER TEST */
 
 .btnpdf{

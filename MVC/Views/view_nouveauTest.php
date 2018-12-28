@@ -3,8 +3,8 @@
 <main>
 
 <div class="container">
-	<div class="row">
-				<div class="offset-lg-1 col-lg-5">
+	<div class="row justify-content-center arbreETtestselection">
+				<div class="col-lg-5">
 
 					<ul class="accordion-menu">
 					 	<?php foreach ($listeCategory as $category): ?>
@@ -23,24 +23,21 @@
 
 				</div>
 
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-							<p class="panel-title"> Tests sélectionnés : </p>
-					</div>
-					<div class="list-group">
-							<ul class="list-group">
+				<div class="card bg-light mb-3">
+  				<div class="card-header">Test sélectionnés :</div>
+					<div class="card-body">
+
+
 								<?php foreach ($tab as $val) :?>
-										 <li  class="list-group-item"> <center><?= $val['catgeorie'] ?><a href='?controller=listeTest&action=supprimer_test&categorie=<?= urlencode($val["catgeorie"])?>'>
-													<img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10/></a> </center>
-										</li>
+										 <p> <center><?= $val['catgeorie'] ?><a href='?controller=listeTest&action=supprimer_test&categorie=<?= urlencode($val["catgeorie"])?>'>
+													<img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a> </center>
+										</p>
 								<?php endforeach ?>
-							</ul>
+
 								<center>	<a class="btn btn-primary" href="?controller=appliquerTest&action=afficherTest">Valider</a> </center>
 					</div>
+
 				</div>
-
-
-
 				<?php $_SESSION['listTestSelectionnes']=$tab;?>
 
 		</div>
