@@ -127,4 +127,17 @@ class Model {
 		}
 	}
 
+public function get_descriptionTest($test){
+	try{
+		$requete = $this->bd->prepare("SELECT description FROM Test where nom = :test");
+		$requete->bindValue(":test",$test);
+		$requete->execute();
+		return $requete->fetchall(PDO::FETCH_ASSOC);
+	}
+	catch (PDOException $e) {
+		die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+	}
+}
+
+
 }

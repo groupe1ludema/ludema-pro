@@ -32,18 +32,6 @@ h2 {
   width:320px;
 }
 
-#listTestSelectionnes{
-  background-color: #c0c0c0;
-  margin-left : 10000 px;
-  margin-top : 10px;
-}
-
-#ListeDesTests{
-  margin-left: -700px;
-  margin-top: 10px ;
-}
-
-main { width : 70%; margin-left : 150px; margin-right: 100px; background-color : #C9C9D9; border-radius : 10px; padding : 30px; position: relative; }
 
 /* ------------------------------------- */
 :root {
@@ -99,6 +87,10 @@ footer p {
 /* ICI SE TROUVE LE CSS DE LA PAGE NOUVEAU TEST */
 
 
+.btnselect{
+  float:right;
+}
+
 .accordion-menu {
   width: 100%;
   max-width: 350px;
@@ -149,29 +141,39 @@ footer p {
   transition: all 0.2s ease-out;
 }
 .submenuItems a:hover {
-  background-color: #CDDC39;
-  color: #fff;
+  text-decoration:none;
+  background-color: #F5F5DC;
+  color: #3366ff;
 }
 
 /* VUE APPLIQUER TEST */
 
-.intitulequestion {
-  font-size: 15px;
+.btnpdf{
+  margin-bottom:10px;
+}
+.formultest{
+  margin-top:20px;
+  background-color:#e6e6e6;
+  border-radius:10px;
+
 }
 
+.titretest {
+  text-align:center;
+}
 
 
 /* CSS DE LECHELLE DE GRADUATION DE 1 à 10 */
 
 .slidecontainer {
-  width: 50%; /* Width of the outside container */
+  width: 100%; /* Width of the outside container */
 }
 
 /* The slider itself */
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 20%;
+  width: 100%;
   height: 15px;
   background: #d3d3d3;
   outline: none; /* Remove outline */
