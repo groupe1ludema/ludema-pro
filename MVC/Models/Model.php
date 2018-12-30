@@ -178,4 +178,16 @@ class Model {
 		}
 	}
 
+	public function verification_login_mdp($login){
+		try{
+			$requete = $this->bd->prepare("SELECT mdp FROM utilisateur where login = :login");
+			$requete->bindValue(":login",$login);
+			$requete->execute();
+			return $requete->fetch();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
 }

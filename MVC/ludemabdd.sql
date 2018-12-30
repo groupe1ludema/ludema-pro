@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 30 déc. 2018 à 17:45
+-- Généré le :  Dim 30 déc. 2018 à 19:24
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -113,16 +113,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `historique_compo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `utilisateur`
---
-
-INSERT INTO `utilisateur` (`login`, `email`, `mdp`, `prenom`, `nom`, `historique_compo`) VALUES
-('Khadijagfsgzf', 'khadija.messaoudi@hotmail.fr', 'Warayaji0625$', 'kjfpoef', 'MESSAOUDI', NULL),
-('sgsghfdrsg', 'gfdhgfsfhg', 'Abcd123$aa', 'fsgfsdh', 'fgqergsq', NULL),
-('Khadija MESSAOUDI', 'khadija.messaoudi@hotmail.fr', 'Warayaji0625$', 'okfoej', 'fddkfpqjfp', NULL),
-('dkdos', 'khadija.msaoudi@hotmail.fr', 'Warayaji0625$', 'Khadija', 'MESSAOUDI', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

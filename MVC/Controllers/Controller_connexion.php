@@ -9,14 +9,32 @@ class Controller_connexion extends Controller {
     $this->render("connexion");
   }
 
-/*  public function action_ouverture_connexion(){
+  public function action_ouverture_connexion(){
     $m = Model::get_model();
+    if(!empty($_POST["login"]) || !empty($_POST["mdp"])){
+      $tab = $m->existe_login_user($_POST["login"]);
+      if($tab["login_exist"]!=0){
+        if($_POST["mdp"] == $m->verification_login_mdp($_POST["login"])[0]){
+          //session_start(); pour apres...
+          $this->render("accueil");
+        }
+        else{
+          $data=array("mdp"=>"Le mot de passe saisie n'est pas valide","msg2"=>"","msg"=>"");
+          $this->render("connexion",$data);
+        }
+      }
+      else{
+        $data=array("msg"=>"Le login saisie n'existe pas !","msg2"=>"","mdp"=>"");
+        $this->render("connexion",$data);
+      }
+    }
 
+    else{
+      $data=array("msg2"=>"Veuillez saisir un mdp et un identifiant ","msg"=>"","mdp"=>"");
+      $this->render("connexion",$data);
+    }
 
-
-
-    session_start();
-  }*/
+  }
 
   public function action_inscription_insert(){
     $m = Model::get_model();
