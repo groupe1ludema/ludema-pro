@@ -20,7 +20,7 @@ class Controller_connexion extends Controller {
 
   public function action_inscription_insert(){
     $m = Model::get_model();
-    if(isset($_POST["nom"]) || isset($_POST["prenom"]) and isset($_POST["email"]) and isset($_POST["login"]) and isset($_POST["mdp"]) and isset($_POST["mdp"])){
+    if(!empty($_POST["nom"]) || !empty($_POST["prenom"]) || !empty($_POST["email"]) || !empty($_POST["login"]) || !empty($_POST["mdp"]) || !empty($_POST["mdp"])){
       $tab = $m->existe_login_user($_POST["login"]);
       $tab2 = $m->existe_login_email($_POST["email"]);
         if($tab["login_exist"]!=0){
