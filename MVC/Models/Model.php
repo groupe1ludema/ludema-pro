@@ -127,17 +127,55 @@ class Model {
 		}
 	}
 
-public function get_descriptionTest($test){
-	try{
-		$requete = $this->bd->prepare("SELECT description FROM Test where nom = :test");
-		$requete->bindValue(":test",$test);
-		$requete->execute();
-		return $requete->fetchall(PDO::FETCH_ASSOC);
+	public function get_descriptionTest($test){
+		try{
+			$requete = $this->bd->prepare("SELECT description FROM Test where nom = :test");
+			$requete->bindValue(":test",$test);
+			$requete->execute();
+			return $requete->fetchall(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
 	}
-	catch (PDOException $e) {
-		die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
-	}
-}
 
+	public function insert_inscription($data=[]){
+		try{
+			$requete = $this->bd->prepare("INSERT INTO utilisateur(login,email,mdp,prenom,nom) values(:login,:email,:mdp,:prenom,:nom)");
+			$marqueurs = ['login','email', 'mdp', 'prenom', 'nom'];
+			foreach ($marqueurs as $value) {
+				$requete->bindValue(':'. $value, $data[$value]);
+			}
+			return $requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function existe_login_user($login){
+		try{
+			$requete = $this->bd->prepare("SELECT EXISTS (SELECT login from utilisateur where login = :login) as login_exist");
+			$requete->bindValue(":login",$login);
+			$requete->execute();
+			return $requete->fetch();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function existe_login_email($email){
+		try{
+			$requete = $this->bd->prepare("SELECT EXISTS (SELECT email from utilisateur where email = :email) as email_exist");
+			$requete->bindValue(":email",$email);
+			$requete->execute();
+			return $requete->fetch();
+
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
 
 }
