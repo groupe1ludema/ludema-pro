@@ -14,5 +14,9 @@ class Controller_home extends Controller {
     $this->render2("inscription");
   }
 
+  public function action_homeConnect(){
+    $m = Model::get_model();
+    $this->render2("moncompte");
+  }
 }
 ?>

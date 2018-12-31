@@ -46,14 +46,30 @@ N° SIREN : 842 256 364 ; N° SIRET : 842 256 364 00014.</p>
         </div>
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container d-flex justify-content-between">
+        <div class="container-fluid d-flex justify-content-between">
           <a href="?controller="home"&action="home" class="navbar-brand d-flex align-items-center">
           <img class="logo" src="Content/image/logo.png" alt="Logo Ludema">
 
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler offset-lg-9" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <?php //CETTE BALISE EST A SUPPRIMé UNE fois que le systeMe de connexion est fonctionel
+
+              //SIMULER CONNECTION
+              //$_SESSION["connecte"]=true;
+              //$_SESSION["login"]="Walid"
+
+              //SIMULER DECONNECTION
+              //session_destroy();
+          ?>
+
+          <?php if(isset($_SESSION["connecte"]) and $_SESSION["connecte"]) :?>
+              <h4 class="text-white">Bonjour,<?=  $_SESSION["login"]?> </h4>
+              <?php else :?>
+                <a class="btn btn-primary" href="?controller=connexion" role="button">Connexion</a>
+                <a class="btn btn-primary" href="#" role="button">Inscription</a>
+          <?php endif ?>
         </div>
       </div>
     </header>
