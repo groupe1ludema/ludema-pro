@@ -1,35 +1,37 @@
 <?php require("view_begin.php"); ?>
 <?php //var_dump($questions) ?>
 <?php //var_dump($description) ?>
-	<form class=" offset-lg-3 col-lg-6 formultest">
+
+	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=genererpdf' method='post'>
+	
 		<?php for($i=0;$i<$nbtest;$i++) : ?>
 				<h1 class="titretest "> <?=$questions[$i][0]['Test']?></h1> <!-- Ici on affiche le nom du test. -->
 				<p> <?=$description[$i][0]['description'] ?> </p>
 		<?php foreach($questions[$i] as $testAndQ ) :?>
-
 				<label for="text"><?= $testAndQ['Intitule'];?></label> <!-- Ici sera affiché l'intitulé de la question -->
 
-
+				<?php $name=str_replace(' ','',$testAndQ['Intitule']);?>
 		<?php if($testAndQ['Inputtype']=="int") :?>
 				<div class="form-group ">
-	    	<input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?= $testAndQ['Intitule'];?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
+	    	<input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?=e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
+			
 			</div>
 
 
 		<?php elseif($testAndQ['Inputtype']=="string") :?>
 				<div class="form-group">
-				<input type="text" class="form-control" name=<?= $testAndQ['Intitule'];?> /> <!-- on affiche une petite zone de texte et un String est attendu -->
+				<input type="text" class="form-control" name=<?= $name;?> /> <!-- on affiche une petite zone de texte et un String est attendu -->
 				</div>
 
 		<?php elseif($testAndQ['Inputtype']=="commentaire") :?>  <!-- on affiche une grande zone de texte -->
 				<div class="form-group">
-				<textarea class="form-control" name=<?= $testAndQ['Intitule'];?> rows="4" cols="28">
+				<textarea class="form-control"name=<?= e($name);?> rows="4" cols="28">
 				</textarea>
 				</div>
 
 
 		<?php elseif($testAndQ['Inputtype']=="echelle") :?> <!-- Ici on affiche une échelle graduée de 0 à 10 -->
-				<?php $name=str_replace(' ','',$testAndQ['Intitule']);?>
+				
 				<div class="form-group">
 				<input type="range" class="slider form-control" name=<?=e($name);?> min="0" max="10" step="1" value="0" oninput="<?=e($name)."res"?>.value=parseInt(<?=e($name);?>.value)"/>
 					<output name=<?= e($name)."res"?>>0</output>
@@ -43,7 +45,7 @@
 		<?php endif?>
 	<?php endforeach?>
 <?php endfor?>
-	<button type="button" class="btn btn-primary btnpdf">Sauvegarder en PDF</button>
+	<p><input type="submit" class="btn btn-primary btnpdf" role="button" value='Sauvegarder en PDF'></p>
 
 </form>
 
