@@ -201,4 +201,35 @@ class Model {
 			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
 		}
 	}
+
+	public function ajouter_client(){
+		try{
+			if(isset($_SESSION['login']) and isset($_POST))
+			$requete = $this->bd->prepare("INSERT INTO client (idClient,loginUtilisateur,prenom,nom,age,sexe,note) VALUES (DEFAULT,:loginPro,:prenom,:nom,:age,:sexe,:note);");
+			$requete->bindValue(":loginPro",$_SESSION['login']);
+			$requete->bindValue(":prenom",$_POST['prenom']);
+			$requete->bindValue(":nom",$_POST['nom']);
+			$requete->bindValue(":age",$_POST['age']);
+			$requete->bindValue(":sexe",$_POST['sexe']);
+			$requete->bindValue(":note",$_POST['note']);
+			$requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec ajouter_client erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function get_my_client(){
+		try{
+			if(isset($_SESSION['login'])){
+				$requete = $this->bd->prepare("SELECT * FROM client WHERE loginUtilisateur = :loginPro ");
+				$requete->bindValue(":loginPro",$_SESSION['login']);
+			}
+			$requete->execute();
+			return $requete->fetchall(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec ajouter_client erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
 }

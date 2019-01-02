@@ -113,8 +113,26 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `historique_compo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-COMMIT;
 
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `client`
+--
+
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `idClient` int NOT NULL AUTO_INCREMENT,
+  `loginUtilisateur` varchar(25)  NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `nom` varchar(30) NOT NULL,
+  `age` int  NOT NULL,
+  `sexe` varchar(10) NOT NULL,
+  `note` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`idClient`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -32,6 +32,9 @@ h2 {
   width:320px;
 }
 
+ul li{
+  display: inline;
+}
 
 /* ------------------------------------- */
 :root {
@@ -317,3 +320,5 @@ background-color:yellow;
     font-size: 25px;
   }
 }
+
+/* HEARDER */

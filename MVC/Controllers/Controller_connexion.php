@@ -15,7 +15,8 @@ class Controller_connexion extends Controller {
       $tab = $m->existe_login_user($_POST["login"]);
       if($tab["login_exist"]!=0){
         if($_POST["mdp"] == $m->verification_login_mdp($_POST["login"])[0]){
-          //session_start(); pour apres...
+          $_SESSION['login']=$_POST["login"];
+          $_SESSION["connecte"]=true;
           $this->render("accueil");
         }
         else{
@@ -34,6 +35,11 @@ class Controller_connexion extends Controller {
       $this->render("connexion",$data);
     }
 
+  }
+
+  public function action_deconnexion(){
+    session_destroy();
+    $this->render2("accueil");    
   }
 
   public function action_inscription_insert(){
