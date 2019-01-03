@@ -104,15 +104,15 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`Intitule`, `Inputtype`, `Test`) VALUES
-('Distance en centimÃ¨tres', 'int', 'Distance doigt sol'),
+('Distance en centimètres', 'int', 'Distance doigt sol'),
 ('Douleur durant le test ', 'echelle', 'Distance doigt sol'),
-('Technique utilisÃ©e', 'string', 'Distance doigt sol'),
+('Technique utilisée', 'string', 'Distance doigt sol'),
 ('Commentaires', 'commentaire', 'Distance doigt sol'),
-('Temps de rÃ©alisation marche rapide (en secondes)', 'int', 'TUG'),
-('Temps de rÃ©alisation marche ordinaire (en secondes)', 'int', 'TUG'),
-('DifficultÃ© durant le test ', 'echelle', 'TUG'),
-('Technique utilisÃ©e', 'string', 'TUG'),
-('Variante utilisÃ©e', 'string', 'TUG'),
+('Temps de réalisation marche rapide (en secondes)', 'int', 'TUG'),
+('Temps de réalisation marche ordinaire (en secondes)', 'int', 'TUG'),
+('Difficulté durant le test ', 'echelle', 'TUG'),
+('Technique utilisée', 'string', 'TUG'),
+('Variante utilisée', 'string', 'TUG'),
 ('Commentaires', 'commentaire', 'TUG');
 
 -- --------------------------------------------------------
@@ -136,11 +136,11 @@ INSERT INTO `test` (`Categorie`, `Nom`, `description`) VALUES
 ('Equilibre', 'One-leg balanc', NULL),
 ('Equilibre', 'FSST', NULL),
 ('Equilibre', 'GUG', NULL),
-('Souplesse', 'Distance doigt sol', 'Pieds joints, basculez lentement le buste vers lâ€™avant en dÃ©roulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impÃ©ratif de ne pas plier les genoux.\r\n\r\nLa distance sÃ©parant lâ€™extrÃ©mitÃ© des doigts et le sol est mesurÃ©e Ã  la rÃ¨gle (cm) et correspond Ã  la va'),
+('Souplesse', 'Distance doigt sol', "Pieds joints, basculez lentement le buste vers l'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va"),
 ('Souplesse', 'Sit and reach', NULL),
-('AgilitÃ©', 'FSST', NULL),
-('AgilitÃ©', 'TUG', 'Dans ce test, la personne doit se relever de la position assise et marcher Ã  trois mÃ¨tres de la chaise pour ensuite revenir sur ses pas (tourne Ã  180 degrÃ©s) et sâ€™assoir de nouveau. Le temps que la personne met Ã  accomplir cette activitÃ© est chronomÃ©trÃ© par lâ€™Ã©valuateur.'),
-('AgilitÃ©', 'GUG', NULL),
+('Agilité', 'FSST', NULL),
+('Agilité', 'TUG', "Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l'évaluateur."),
+('Agilité', 'GUG', NULL),
 ('Souplesse', 'Chair sit and reach', NULL);
 
 -- --------------------------------------------------------

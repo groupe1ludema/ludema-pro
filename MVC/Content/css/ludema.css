@@ -32,10 +32,6 @@ h2 {
   width:320px;
 }
 
-ul li{
-  display: inline;
-}
-
 /* ------------------------------------- */
 :root {
   --jumbotron-padding-y: 3rem;
