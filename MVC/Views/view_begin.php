@@ -38,9 +38,11 @@ N° SIREN : 842 256 364 ; N° SIRET : 842 256 364 00014.</p>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Nous contacter</h4>
               <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Suivez nous sur Twitter</a></li>
-                <li><a href="#" class="text-white">Suivez nous sur Facebook</a></li>
-                <li><a href="#" class="text-white">Contactez nous !</a></li>
+                <li><a href="https://twitter.com/centre_ludema" class="text-white"><img src="Content/image/LogoOfficielTwitter.png" class="logoRS"/></a>
+                <a href="https://www.facebook.com/centre.ludema" class="text-white"><img src="Content/image/LogoOfficielFacebook.png" class="logoRS"/></a>
+                <a href="https://www.instagram.com/centre_ludema/" class="text-white"><img src="Content/image/LogoOfficielInstagram.png" class="logoRS"/></a></li>
+
+                <li><a href="https://centreludema.fr/" class="text-white">Centre Ludema</a></li>
               </ul>
             </div>
           </div>
@@ -59,12 +61,12 @@ N° SIREN : 842 256 364 ; N° SIRET : 842 256 364 00014.</p>
         <a class="btn btn-primary " href="?controller=connexion&action=deconnexion" role="button">Deconnexion</a>
         <a class="btn btn-primary " href="?controller=home&action=homeConnect" role="button">Mon compte</a>
       <?php else :?>
-         <a class="btn btn-primary " href="?controller=connexion" role="button">Connexion</a>  
+         <a class="btn btn-primary " href="?controller=connexion" role="button">Connexion</a>
           <a class="btn btn-primary " href="?controller=connexion&action=inscription_insert" role="button">Inscription</a>
         <?php endif ?>
 
 
-          </a>
+
           <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
