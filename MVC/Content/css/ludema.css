@@ -32,6 +32,11 @@ h2 {
   width:320px;
 }
 
+.logoRS{
+  width:50px;
+  padding:8px;
+
+}
 
 /* ------------------------------------- */
 :root {
@@ -264,3 +269,58 @@ output {
 .formm .register-form {
   display: none;
 }
+
+.pouet {color: blue;}
+
+.bleu {
+background-color:blue;
+}
+
+.vert {
+background-color:green;
+}
+
+.rouge {
+background-color:red;
+}
+
+.jaune {
+background-color:yellow;
+}
+
+/* VUE monCompte */
+
+
+
+.boutonMonCompte{
+  width:100%;
+  white-space: nowrap;
+  padding-top:25%;
+  padding-bottom:25%;
+}
+
+@media screen and (max-width: 767px) {
+.boutonMonCompte {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .boutonMonCompte {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+.boutonMonCompte {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+.boutonMonCompte {
+    font-size: 25px;
+  }
+}
+
+/* HEARDER */

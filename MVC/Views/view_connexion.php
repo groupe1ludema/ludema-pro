@@ -6,14 +6,21 @@
     <form class="register-form">
     </form>
 
-    <form class="login-form" method = "post" action = "?controller=home&action=home">
-      <input type="text" placeholder="Nom d'utilisateur"/>
-      <input type="password" placeholder="Mot de passe"/>
+    <form class="login-form" method = "post" action = "?controller=connexion&action=ouverture_connexion">
+      <?php if(isset($_POST["login"])) : ?>
+        <p><?= $msg ?><p>
+      <?php endif ?>
+      <?php if(isset($_POST["login"]) && isset($_POST["mdp"])) : ?>
+        <p><?= $msg2 ?><p>
+      <?php endif ?>
+      <input type="text" placeholder="Nom d'utilisateur" name="login"/>
+      <?php if(isset($_POST["mdp"])) :  ?>
+        <p><?= $mdp ?>  <p>
+      <?php endif ?>
+      <input type="password" placeholder="Mot de passe" name="mdp"/>
       <button>CONNEXION</button>
-      <p class="message">Pas enregistré ? <a href="#">Créer un compte</a></p>
+      <p class="message">Pas enregistré ? <a href="?controller=home&action=inscription">Créer un compte</a></p>
     </form>
     </div>
     </div>
-
-  </body>
-</html>
+<?php require("view_end.php"); ?>
