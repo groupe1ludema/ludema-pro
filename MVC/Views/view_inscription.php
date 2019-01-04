@@ -30,5 +30,5 @@
     </div>
     </div>
 
-  </body>
-</html>
+
+<?php require("view_end.php"); ?>

@@ -3,7 +3,7 @@
 <?php //var_dump($description) ?>
 
 	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=genererpdf' method='post'>
-	
+
 		<?php for($i=0;$i<$nbtest;$i++) : ?>
 				<h1 class="titretest "> <?=$questions[$i][0]['Test']?></h1> <!-- Ici on affiche le nom du test. -->
 				<p> <?=$description[$i][0]['description'] ?> </p>
@@ -14,7 +14,7 @@
 		<?php if($testAndQ['Inputtype']=="int") :?>
 				<div class="form-group ">
 	    	<input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?=e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
-			
+
 			</div>
 
 
@@ -31,7 +31,7 @@
 
 
 		<?php elseif($testAndQ['Inputtype']=="echelle") :?> <!-- Ici on affiche une échelle graduée de 0 à 10 -->
-				
+
 				<div class="form-group">
 				<input type="range" class="slider form-control" name=<?=e($name);?> min="0" max="10" step="1" value="0" oninput="<?=e($name)."res"?>.value=parseInt(<?=e($name);?>.value)"/>
 					<output name=<?= e($name)."res"?>>0</output>
@@ -49,10 +49,4 @@
 
 </form>
 
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> <!-- Pour faire fonctionner la barre du haut, ça serai bien de mettre dans le footer mais ya un pb -->
-	 <script src="Content/js/bootstrap.min.js"></script>
-
-
-		</body>
-		</html>
+	 	<?php require("view_end.php"); ?>

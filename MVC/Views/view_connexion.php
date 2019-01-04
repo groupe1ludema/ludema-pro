@@ -23,6 +23,4 @@
     </form>
     </div>
     </div>
-ss
-  </body>
-</html>
+<?php require("view_end.php"); ?>
