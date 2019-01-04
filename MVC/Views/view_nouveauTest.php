@@ -45,5 +45,5 @@
 
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 		<script src="Content/js/menuderoulant.js"></script>
-	
+
 		<?php  require("view_end.php"); ?>
