@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 02 jan. 2019 à 13:08
+-- Généré le :  ven. 04 jan. 2019 à 17:30
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -84,7 +84,9 @@ CREATE TABLE IF NOT EXISTS `panier` (
 --
 
 INSERT INTO `panier` (`catgeorie`) VALUES
-('Distance doigt sol');
+('Distance doigt sol'),
+('Sit and reach'),
+('TUG');
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,11 @@ INSERT INTO `questions` (`Intitule`, `Inputtype`, `Test`) VALUES
 ('Difficulté durant le test ', 'echelle', 'TUG'),
 ('Technique utilisée', 'string', 'TUG'),
 ('Variante utilisée', 'string', 'TUG'),
-('Commentaires', 'commentaire', 'TUG');
+('Commentaires', 'commentaire', 'TUG'),
+('Distance en centimètres', 'int', 'Sit and reach'),
+('Douleur durant le test ', 'echelle', 'Sit and reach'),
+('Technique utilisée', 'string', 'Sit and reach'),
+('Commentaires', 'commentaire', 'Sit and reach');
 
 -- --------------------------------------------------------
 
@@ -136,10 +142,10 @@ INSERT INTO `test` (`Categorie`, `Nom`, `description`) VALUES
 ('Equilibre', 'One-leg balanc', NULL),
 ('Equilibre', 'FSST', NULL),
 ('Equilibre', 'GUG', NULL),
-('Souplesse', 'Distance doigt sol', "Pieds joints, basculez lentement le buste vers l'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va"),
+('Souplesse', 'Distance doigt sol', 'Pieds joints, basculez lentement le buste vers l\'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l\'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va'),
 ('Souplesse', 'Sit and reach', NULL),
 ('Agilité', 'FSST', NULL),
-('Agilité', 'TUG', "Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l'évaluateur."),
+('Agilité', 'TUG', 'Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s\'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l\'évaluateur.'),
 ('Agilité', 'GUG', NULL),
 ('Souplesse', 'Chair sit and reach', NULL);
 
