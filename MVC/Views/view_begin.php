@@ -26,60 +26,53 @@
 
         <!-- Barre en Haut -->
          <header>
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">À propos</h4>
-              <p class="text-muted">LUDEMA est une Société par Actions Simplifiées dont la présidente est Céline De Prins et le Directeur Général Mathieu Vergnault. Le siège social est situé au 49 rue de Paris, 95310 Saint Ouen l’Aumône. La SAS LUDEMA possède une activité en lien avec l’enseignement de disciplines sportives et d’activités de loisirs, code APE 8551Z.
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="?controller=home&action=home"><img class="logo img-responsive " src="Content/image/logo.png" alt="Logo Ludema"></a>
 
-N° SIREN : 842 256 364 ; N° SIRET : 842 256 364 00014.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Nous contacter</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Suivez nous sur Twitter</a></li>
-                <li><a href="#" class="text-white">Suivez nous sur Facebook</a></li>
-                <li><a href="#" class="text-white">Contactez nous !</a></li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarHeader">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="?controller=home&action=default">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://centreludema.fr/">Centre Ludema</a>
+            </li>
+            <?php if(isset($_SESSION["connecte"]) and $_SESSION["connecte"] and isset($_SESSION["login"]) ) :?>
+            <li class="nav-item">
+              <a class="nav-link" href="?controller=home&action=homeConnect">Mon Compte</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav my-1 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="?controller=connexion&action=deconnexion">Déconnexion</a>
+            </li>
+            <?php else :?>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark shadow-sm ">
-        <div class="container-fluid d-flex">
-
-          <a href="?controller=home&action=home" class="navbar-brand d-flex align-items-center">
-          <img class="logo" src="Content/image/logo.png" alt="Logo Ludema">
-
-<?php // STOPPPPPPPPPPPPPPPPPPPPPPPPPPP?>
-
-    <?php if(isset($_SESSION["connecte"]) and $_SESSION["connecte"] and isset($_SESSION["login"]) ) :?>
-        <!-- <h4 class="text-white">Bonjour,<?=  $_SESSION["login"]?> </h4> -->
-        <a class="btn btn-primary " href="?controller=connexion&action=deconnexion" role="button">Deconnexion</a>
-        <a class="btn btn-primary " href="?controller=home&action=homeConnect" role="button">Mon compte</a>
-      <?php else :?>
-         <a class="btn btn-primary " href="?controller=connexion" role="button">Connexion</a>  
-          <a class="btn btn-primary " href="?controller=connexion&action=inscription_insert" role="button">Inscription</a>
-        <?php endif ?>
+              <ul class="navbar-nav my-1 my-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="?controller=connexion">Connexion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="?controller=connexion&action=inscription_insert">Inscription</a>
+                </li>
+              </ul>
+            <?php endif ?>
+      </nav>
 
 
-          </a>
-          <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+                          <?php //CETTE BALISE EST A SUPPRIMé UNE fois que le systeMe de connexion est fonctionel
+
+                              //SIMULER CONNECTION
+                              //$_SESSION["connecte"]=true;
+                              //$_SESSION["login"]="Walid"
+
+                              //SIMULER DECONNECTION
+                              //session_destroy();
+                          ?>
 
 
-          <?php //CETTE BALISE EST A SUPPRIMé UNE fois que le systeMe de connexion est fonctionel
-
-              //SIMULER CONNECTION
-              //$_SESSION["connecte"]=true;
-              //$_SESSION["login"]="Walid"
-
-              //SIMULER DECONNECTION
-              //session_destroy();
-          ?>
-
-        </div>
-      </div>
     </header>

@@ -32,6 +32,12 @@ h2 {
   width:320px;
 }
 
+.logoRS{
+  width:50px;
+  padding:8px;
+
+}
+
 /* ------------------------------------- */
 :root {
   --jumbotron-padding-y: 3rem;

@@ -39,7 +39,7 @@ class Controller_connexion extends Controller {
 
   public function action_deconnexion(){
     session_destroy();
-    $this->render2("accueil");    
+    $this->render2("accueil");
   }
 
   public function action_inscription_insert(){
@@ -62,7 +62,7 @@ class Controller_connexion extends Controller {
       }
 
       else if($_POST["mdp"] != $_POST["mdp2"]){
-        $data = ["mdp" => "Les mots de ne sont pas les memes","msg" => "","msg2"=>""];
+        $data = ["mdp" => "Les mots de passe ne sont pas les memes","msg" => "","msg2"=>""];
         $this->render("inscription",$data);
       }
       else if(strlen($_POST["mdp"]) < 8){

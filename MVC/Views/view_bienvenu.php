@@ -3,5 +3,4 @@
 
   <p> Bienvenue ! </p>
 
-  </body>
-</html>
+<?php require("view_end.php"); ?>
