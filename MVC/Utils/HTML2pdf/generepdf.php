@@ -67,13 +67,48 @@ require('fpdf.php');
             $this->SetDrawColor(0,0,0);
             $this->SetTextColor(69,161,138);  
 
-            
-            for($i=0;$i<$data['nbtest'];$i++){
+            //1er Titre et Test
+            $this->SetTextColor(69,161,138); 
+            $this->SetFont('Arial','B',14);
+            $this->Cell(150,6,utf8_decode($data['questions'][0][0]['Test']),0,1);
+            $this->Ln(0.5);
+            $this->SetTextColor(3,61,134);
+            for($j=0;$j<sizeof($data['questions'][0]);$j++){  
+                   
+                $name=str_replace(' ','',$data['questions'][0][$j]['Intitule'].'/'.$data['questions'][0][$j]['Test']);
+
+
+                //var_dump($_POST);
+                //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
+                if(isset($_POST[$name])){
+                    
+                    if($data['questions'][0][$j]['Inputtype'] == 'commentaire' || $data['questions'][0][$j]['Inputtype'] == 'string' ){
+                        //Question mis au début de la ligne
+                        $this->SetFont('Arial','B',10);
+                        $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,1);
+                        //Résultat de la question 
+                        $this->SetFont('Arial','',10);
+                        $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
+
+
+                    }else{
+
+                        $this->SetFont('Arial','B',10);
+                        $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,0);
+                        $this->SetFont('Arial','',10);
+                        $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
+                    }
+                }   
+
+                $this->Ln(0.5);    
+               
+             }
+            for($i=1;$i<$data['nbtest'];$i++){
                 
                 
                 //var_dump($data['questions']);
                 //titre
-                if($data['categorie'][$i][0]['categorie'] == $data['categorie'][0][0]['categorie']){
+                if($data['categorie'][$i][0]['categorie'] == $data['categorie'][$i-1][0]['categorie']){
                 
 
                     //Font TITRE DU TEST
@@ -132,6 +167,7 @@ require('fpdf.php');
                     $this->Ln(0.5);    
                    
                  }
+                 $this->Ln();
 
 
 

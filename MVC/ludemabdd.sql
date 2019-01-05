@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 ﻿-- phpMyAdmin SQL Dump
 =======
 -- phpMyAdmin SQL Dump
@@ -150,17 +150,10 @@ INSERT INTO `test` (`Categorie`, `Nom`, `description`) VALUES
 ('Equilibre', 'One-leg balanc', NULL),
 ('Equilibre', 'FSST', NULL),
 ('Equilibre', 'GUG', NULL),
-<<<<<<< HEAD
 ('Souplesse', 'Distance doigt sol', "Pieds joints, basculez lentement le buste vers l'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va"),
 ('Souplesse', 'Sit and reach', NULL),
 ('Agilité', 'FSST', NULL),
-('Agilité', 'TUG', "Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l'évaluateur."),
-=======
-('Souplesse', 'Distance doigt sol', 'Pieds joints, basculez lentement le buste vers l\'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l\'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va'),
-('Souplesse', 'Sit and reach', NULL),
-('Agilité', 'FSST', NULL),
-('Agilité', 'TUG', 'Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s\'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l\'évaluateur.'),
->>>>>>> ddbb2e7b32240dfe8d164ec32448f7051bddf1ae
+('Agilité', 'TUG', "Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l'évaluateur"),
 ('Agilité', 'GUG', NULL),
 ('Souplesse', 'Chair sit and reach', NULL);
 
