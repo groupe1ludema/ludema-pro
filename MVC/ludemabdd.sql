@@ -1,17 +1,9 @@
-﻿<<<<<<< HEAD
-﻿-- phpMyAdmin SQL Dump
-=======
 -- phpMyAdmin SQL Dump
->>>>>>> ddbb2e7b32240dfe8d164ec32448f7051bddf1ae
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
-<<<<<<< HEAD
--- Généré le :  mer. 02 jan. 2019 à 13:08
-=======
--- Généré le :  ven. 04 jan. 2019 à 17:30
->>>>>>> ddbb2e7b32240dfe8d164ec32448f7051bddf1ae
+-- Généré le :  mar. 08 jan. 2019 à 15:11
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -93,8 +85,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
 
 INSERT INTO `panier` (`catgeorie`) VALUES
 ('Distance doigt sol'),
-('Sit and reach'),
-('TUG');
+('Sit and reach');
 
 -- --------------------------------------------------------
 
@@ -114,20 +105,16 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`Intitule`, `Inputtype`, `Test`) VALUES
-('Distance en centimètres', 'int', 'Distance doigt sol'),
+('Distance en centimÃƒÂ¨tres', 'int', 'Distance doigt sol'),
 ('Douleur durant le test ', 'echelle', 'Distance doigt sol'),
-('Technique utilisée', 'string', 'Distance doigt sol'),
+('Technique utilisÃƒÂ©e', 'string', 'Distance doigt sol'),
 ('Commentaires', 'commentaire', 'Distance doigt sol'),
-('Temps de réalisation marche rapide (en secondes)', 'int', 'TUG'),
-('Temps de réalisation marche ordinaire (en secondes)', 'int', 'TUG'),
-('Difficulté durant le test ', 'echelle', 'TUG'),
-('Technique utilisée', 'string', 'TUG'),
-('Variante utilisée', 'string', 'TUG'),
-('Commentaires', 'commentaire', 'TUG'),
-('Distance en centimètres', 'int', 'Sit and reach'),
-('Douleur durant le test ', 'echelle', 'Sit and reach'),
-('Technique utilisée', 'string', 'Sit and reach'),
-('Commentaires', 'commentaire', 'Sit and reach');
+('Temps de rÃƒÂ©alisation marche rapide (en secondes)', 'int', 'TUG'),
+('Temps de rÃƒÂ©alisation marche ordinaire (en secondes)', 'int', 'TUG'),
+('DifficultÃƒÂ© durant le test ', 'echelle', 'TUG'),
+('Technique utilisÃƒÂ©e', 'string', 'TUG'),
+('Variante utilisÃƒÂ©e', 'string', 'TUG'),
+('Commentaires', 'commentaire', 'TUG');
 
 -- --------------------------------------------------------
 
@@ -150,11 +137,11 @@ INSERT INTO `test` (`Categorie`, `Nom`, `description`) VALUES
 ('Equilibre', 'One-leg balanc', NULL),
 ('Equilibre', 'FSST', NULL),
 ('Equilibre', 'GUG', NULL),
-('Souplesse', 'Distance doigt sol', "Pieds joints, basculez lentement le buste vers l'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va"),
+('Souplesse', 'Distance doigt sol', 'Pieds joints, basculez lentement le buste vers lÃ¢â‚¬â„¢avant en dÃƒÂ©roulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impÃƒÂ©ratif de ne pas plier les genoux.\r\n\r\nLa distance sÃƒÂ©parant lÃ¢â‚¬â„¢extrÃƒÂ©mitÃƒÂ© des doigts et le sol est mesurÃƒÂ©e ÃƒÂ  la rÃƒÂ¨gle ('),
 ('Souplesse', 'Sit and reach', NULL),
-('Agilité', 'FSST', NULL),
-('Agilité', 'TUG', "Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l'évaluateur"),
-('Agilité', 'GUG', NULL),
+('AgilitÃƒÂ©', 'FSST', NULL),
+('AgilitÃƒÂ©', 'TUG', 'Dans ce test, la personne doit se relever de la position assise et marcher ÃƒÂ  trois mÃƒÂ¨tres de la chaise pour ensuite revenir sur ses pas (tourne ÃƒÂ  180 degrÃƒÂ©s) et sÃ¢â‚¬â„¢assoir de nouveau. Le temps que la personne met ÃƒÂ  accomplir cette activitÃƒÂ© est chronomÃƒÂ©trÃƒÂ© par lÃ¢â‚¬â„¢Ãƒ'),
+('AgilitÃƒÂ©', 'GUG', NULL),
 ('Souplesse', 'Chair sit and reach', NULL);
 
 -- --------------------------------------------------------
@@ -167,10 +154,10 @@ DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `login` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `mdp` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `historique_compo` varchar(100) DEFAULT NULL,
+  `mdp` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -178,8 +165,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`login`, `email`, `mdp`, `prenom`, `nom`, `historique_compo`) VALUES
-('a', 'a', 'a', 'a', 'a', 'a');
+INSERT INTO `utilisateur` (`login`, `email`, `prenom`, `nom`, `historique_compo`, `mdp`) VALUES
+('ludema', 'Ludema@homail.fr', 'lud', 'Ludema', NULL, '$2y$10$TB2wJ5BBH902HDf.jk4DieYfSO78cEjdNB07cx2uAZFrabl5uNLcy');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
