@@ -14,7 +14,8 @@ class Controller_connexion extends Controller {
     if(!empty($_POST["login"]) || !empty($_POST["mdp"])){
       $tab = $m->existe_login_user($_POST["login"]);
       if($tab["login_exist"]!=0){
-        if($_POST["mdp"] == $m->verification_login_mdp($_POST["login"])[0]){
+        $pass = $m->verification_login_mdp($_POST["login"])[0];
+        if(password_verify($_POST["mdp"], $pass)){
           $_SESSION['login']=$_POST["login"];
           $_SESSION["connecte"]=true;
           $this->render("accueil");
@@ -38,7 +39,7 @@ class Controller_connexion extends Controller {
   }
 
   public function action_deconnexion(){
-    session_destroy();
+    session_unset();session_destroy();
     $this->render2("accueil");
   }
 
@@ -74,7 +75,8 @@ class Controller_connexion extends Controller {
         $this->render("inscription",$data);
       }
       else{
-        $data = array('login'=>$_POST["login"],'email'=>$_POST["email"], 'mdp'=>$_POST["mdp"], 'prenom'=>$_POST["prenom"], 'nom'=>$_POST["nom"]);
+        $mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
+        $data = array('login'=>$_POST["login"],'email'=>$_POST["email"], 'mdp'=>$mdp, 'prenom'=>$_POST["prenom"], 'nom'=>$_POST["nom"]);
         $true = $m->insert_inscription($data);
         if($true){
           $this->render("bienvenu");
