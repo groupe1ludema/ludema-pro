@@ -6,7 +6,8 @@
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading"><img class="logoAcc img-fluid" src="Content/image/logo.png" alt="Logo Ludema"></h1>
-          <p class="lead text-muted">LUDEMA est une Société par Actions Simplifiées employés dont la présidente est Céline De Prins et le Directeur Général Mathieu VERGNAULT. Le siège social est situé aux 49 rues de Paris, 95310 Saint Ouen l’Aumône.</p>
+          <p class="lead text-muted">LUDEMA est une Société par Actions Simplifiées employés dont la présidente est Céline De Prins et le Directeur Général Mathieu VERGNAULT.
+            Le siège social est situé aux 49 rues de Paris, 95310 Saint Ouen l’Aumône.</p>
           <p>
             <a href="?controller=listeTest&action=choixTest" class="btn btn-primary my-2">Nouveau Test</a>
           </p>
