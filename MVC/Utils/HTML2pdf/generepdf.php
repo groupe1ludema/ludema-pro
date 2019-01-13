@@ -20,7 +20,7 @@ require('fpdf.php');
             $this->SetLineWidth(0.5);
 
 
-            
+
             // case jaune
             $date=date("d-m-Y");//date actuelle
 
@@ -144,7 +144,10 @@ require('fpdf.php');
                 for($j=0;$j<sizeof($data['questions'][$i]);$j++){
 
                     $name=str_replace(' ','',$data['questions'][$i][$j]['Intitule'].'DE'.$data['questions'][$i][$j]['Test']);
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 8af82daa7c295c0f0610b82bf87d1a2caea1932d
 
                     
                     //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
