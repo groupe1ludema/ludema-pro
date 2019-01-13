@@ -49,7 +49,7 @@ class Controller_connexion extends Controller {
       $tab = $m->existe_login_user($_POST["login"]);
       $tab2 = $m->existe_login_email($_POST["email"]);
         if($tab["login_exist"]!=0){
-        $data = ["msg" => "Le login saisie existe déjà !","mdp"=>"","msg2"=>""];
+        $data = ["msg" => "Le login saisi existe déjà !","mdp"=>"","msg2"=>""];
         $this->render("inscription",$data);
       }
       else if ($tab2["email_exist"]!=0){

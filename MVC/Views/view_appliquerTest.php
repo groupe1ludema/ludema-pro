@@ -27,11 +27,11 @@
 
 
 
-		
+
 		<?php if($testAndQ['Inputtype']=="int") :?>
 				<div class="form-group ">
 	    	<input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?= e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
-			
+
 			</div>
 
 
@@ -52,7 +52,7 @@
 				<div class="form-group">
 				<input type="range" class="slider form-control" name=<?= e($name);?> min="0" max="10" step="1" value="0" oninput="<?=e($name).'res'?>.value=parseInt(<?= e($name);?>.value)"/>
 					<output name=<?= e($name)."res"?>>0</output>
-				</div> 
+				</div>
 
 	<?php /*		<?php elseif($testAndQ['Inputtype']=="echelle6-20") :?> <!-- Ici on affiche une échelle graduée de 6 à 20 -->
 					<div class="form-group">

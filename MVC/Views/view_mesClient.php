@@ -3,8 +3,8 @@
 <?php //var_dump($data);?>
 <?php //var_dump($_SESSION);?>
 
-	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=ajouterClient' method='post'>
-				<h1 class="titretest "> Ajouter un client </h1>
+	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=ajouterClient' method='post'> <!-- Client = pratiquant -->
+				<h1 class="titretest "> Ajouter un pratiquant </h1>
 
         <div>
         <label >Nom :</label> <input type="text" class="form-control " name="nom" />
@@ -39,8 +39,8 @@
 </form>
 
 <form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=donneeClient' method='post'>
-          	<h1 class="titretest "> Données Client </h1>
-            Client :</label>
+          	<h1 class="titretest "> Données Pratiquant </h1>
+            Pratiquant :</label>
             <div>
               <SELECT name="client">
               <?php foreach($listeClients as $client) :?>
