@@ -25,16 +25,16 @@
 				<textarea class="form-control"name=<?= e($name);?> rows="4" cols="28">
 				</textarea>
 				</div>
-		<?php elseif($testAndQ['Inputtype']=="echelle") :?> <!-- Ici on affiche un axe graduée de 0 à 10 -->
+		<?php elseif($testAndQ['Inputtype']=="axe010") :?> <!-- Ici on affiche un axe graduée de 0 à 10 -->
 				<div class="form-group">
 				<input type="range" class="slider form-control" name=<?= e($name);?> min="0" max="10" step="1" value="0" oninput="<?=e($name).'res'?>.value=parseInt(<?= e($name);?>.value)"/>
 					<output name=<?= e($name)."res"?>>0</output>
 				</div>
-			<?php /*		<?php elseif($testAndQ['Inputtype']=="axe6-20") :?> <!-- Ici on affiche un axe graduée de 6 à 20 -->
+			<?php elseif($testAndQ['Inputtype']=="axe620") :?> <!-- Ici on affiche un axe graduée de 6 à 20 -->
 					<div class="form-group">
-					<input type="range" class="slider form-control" name=<?= $testAndQ['Test'];?> min="6" max="20" step="1" value="0" oninput="res.value=parseInt(<?= $testAndQ['Intitule'];?>.value)"/>
-						<output name="res">6</output>
-					</div> */ ?>
+					<input type="range" class="slider form-control" name=<?= e($name);?> min="6" max="20" step="1" value="0" oninput="<?=e($name).'res'?>.value=parseInt(<?= e($name);?>.value)"/>
+						<output name=<?= e($name)."res"?>>6</output>
+					</div>
 		<?php endif?>
 	<?php endforeach?>
 <?php endfor?>
