@@ -81,8 +81,7 @@ require('fpdf.php');
                // var_dump($_POST[$name]);
                 
                 //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
-                if(isset($_POST[$name])){
-                    if($_POST[$name] != ''){
+                if(isset($_POST[$name]) and trim($_POST[$name]) != ''){
                     
                         if($data['questions'][0][$j]['Inputtype'] == 'commentaire' || $data['questions'][0][$j]['Inputtype'] == 'string' ){
                             //Question mis au début de la ligne
@@ -100,7 +99,7 @@ require('fpdf.php');
                             $this->SetFont('Arial','',10);
                             $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
                         }
-                    }
+                    
                 }
 
                 $this->Ln(0.5);
@@ -144,15 +143,12 @@ require('fpdf.php');
                 for($j=0;$j<sizeof($data['questions'][$i]);$j++){
 
                     $name=str_replace(' ','',$data['questions'][$i][$j]['Intitule'].'DE'.$data['questions'][$i][$j]['Test']);
-<<<<<<< HEAD
                     
-=======
->>>>>>> 8af82daa7c295c0f0610b82bf87d1a2caea1932d
 
                     
                     //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
-                    if(isset($_POST[$name])){
-                        if($_POST[$name] != ''){
+                    if(isset($_POST[$name]) and trim($_POST[$name]) != ''){
+                       
                            
                             if($data['questions'][$i][$j]['Inputtype'] == 'commentaire' || $data['questions'][$i][$j]['Inputtype'] == 'string' ){
                                 //Question mis au début de la ligne
@@ -172,7 +168,7 @@ require('fpdf.php');
                                 $this->SetFont('Arial','',10);
                                 $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
                             }
-                        }
+                        
                     }
 
                     $this->Ln(0.5);
@@ -183,6 +179,21 @@ require('fpdf.php');
 
 
             }
+            //var_dump($_POST['bilan_globale']);
+            $this->SetDrawColor(255,255,255);
+            $this->SetTextColor(255, 255, 255);     //couleur barre de titre
+            $this->SetFillColor(113, 194, 174);
+            $this->SetFont('Arial','B',16);
+            $this->MultiCell(189,6,utf8_decode("Commentaire Globale"),1,'C',true);
+            $this->Ln(5);
+
+            $this->SetFont('Arial','',12);
+            $this->SetDrawColor(214, 0, 126  );
+            $this->SetTextColor(3,61,134);
+            $this->SetLineWidth(0.5);
+            $this->MultiCell(188,5,utf8_decode($_POST['bilan_globale']),1,'L',false);
+            $this->Ln();
+           
         }
     }
 

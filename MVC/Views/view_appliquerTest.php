@@ -38,8 +38,13 @@
 		<?php endif?>
 	<?php endforeach?>
 <?php endfor?>
-	<p><input type="submit" class="btn btn-primary btnpdf" role="button" value='Sauvegarder en PDF'></p>
+<p> Commentaire globale </p>
+ <div class="form-group">
+   <textarea class="form-control"name="bilan_globale" rows="4" cols="28"></textarea>
+ </div>
+ <p><input type="submit" class="btn btn-primary btnpdf" role="button" value='Sauvegarder en PDF'></p>
 
 </form>
+	
 
 	 	<?php require("view_end.php"); ?>
