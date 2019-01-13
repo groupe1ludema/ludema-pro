@@ -23,8 +23,7 @@
 				</div>
 		<?php elseif($testAndQ['Inputtype']=="commentaire") :?>  <!-- on affiche une grande zone de texte -->
 				<div class="form-group">
-				<textarea class="form-control"name=<?= e($name);?> rows="4" cols="28">
-				</textarea>
+				<textarea class="form-control"name=<?= e($name);?> rows="4" cols="28"></textarea>
 				</div>
 		<?php elseif($testAndQ['Inputtype']=="axe010") :?> <!-- Ici on affiche un axe graduée de 0 à 10 -->
 				<div class="form-group">

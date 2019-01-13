@@ -52,9 +52,9 @@ require('fpdf.php');
 
             //var_dump($data['questions']);
             //var_dump($data['questions'][0][O][]);
-            //var_dump($data['questions'][0][0]);
+            //var_dump($data['questions']);
             // var_dump($_POST);
-             //var_dump($_SESSION);
+            //var_dump($data['questions']);
             $this->SetDrawColor(255,255,255);
             $this->SetTextColor(255, 255, 255);     //couleur barre de titre
             $this->SetFillColor(113, 194, 174);
@@ -75,28 +75,31 @@ require('fpdf.php');
             $this->SetTextColor(3,61,134);
             for($j=0;$j<sizeof($data['questions'][0]);$j++){
 
-                $name=str_replace(' ','',$data['questions'][0][$j]['Intitule'].'/'.$data['questions'][0][$j]['Test']);
+                $name=str_replace(' ','',$data['questions'][0][$j]['Intitule'].'DE'.$data['questions'][0][$j]['Test']);
 
 
-                //var_dump($_POST);
+               // var_dump($_POST[$name]);
+                
                 //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
                 if(isset($_POST[$name])){
+                    if($_POST[$name] != ''){
+                    
+                        if($data['questions'][0][$j]['Inputtype'] == 'commentaire' || $data['questions'][0][$j]['Inputtype'] == 'string' ){
+                            //Question mis au début de la ligne
+                            $this->SetFont('Arial','B',10);
+                            $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,1);
+                            //Résultat de la question
+                            $this->SetFont('Arial','',10);
+                            $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
 
-                    if($data['questions'][0][$j]['Inputtype'] == 'commentaire' || $data['questions'][0][$j]['Inputtype'] == 'string' ){
-                        //Question mis au début de la ligne
-                        $this->SetFont('Arial','B',10);
-                        $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,1);
-                        //Résultat de la question
-                        $this->SetFont('Arial','',10);
-                        $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
 
+                        }else{
 
-                    }else{
-
-                        $this->SetFont('Arial','B',10);
-                        $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,0);
-                        $this->SetFont('Arial','',10);
-                        $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
+                            $this->SetFont('Arial','B',10);
+                            $this->Cell(140,5,utf8_decode($data['questions'][0][$j]['Intitule'].':'),0,0);
+                            $this->SetFont('Arial','',10);
+                            $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
+                        }
                     }
                 }
 
@@ -105,7 +108,7 @@ require('fpdf.php');
              }
             for($i=1;$i<$data['nbtest'];$i++){
 
-
+                
                 //var_dump($data['questions']);
                 //titre
                 if($data['categorie'][$i][0]['categorie'] == $data['categorie'][$i-1][0]['categorie']){
@@ -137,30 +140,35 @@ require('fpdf.php');
 
                 }
                 // var_dump($data['questions']);
+                
                 for($j=0;$j<sizeof($data['questions'][$i]);$j++){
 
-                    $name=str_replace(' ','',$data['questions'][$i][$j]['Intitule'].'/'.$data['questions'][$i][$j]['Test']);
+                    $name=str_replace(' ','',$data['questions'][$i][$j]['Intitule'].'DE'.$data['questions'][$i][$j]['Test']);
+                    
 
-
-                    //var_dump($_POST);
+                    
                     //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
                     if(isset($_POST[$name])){
+                        if($_POST[$name] != ''){
+                           
+                            if($data['questions'][$i][$j]['Inputtype'] == 'commentaire' || $data['questions'][$i][$j]['Inputtype'] == 'string' ){
+                                //Question mis au début de la ligne
+                                
+                            
+                                $this->SetFont('Arial','B',10);
+                                $this->Cell(140,5,utf8_decode($data['questions'][$i][$j]['Intitule'].':'),0,1);
+                                //Résultat de la question
+                                $this->SetFont('Arial','',10);
+                                $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
+                                
 
-                        if($data['questions'][$i][$j]['Inputtype'] == 'commentaire' || $data['questions'][$i][$j]['Inputtype'] == 'string' ){
-                            //Question mis au début de la ligne
-                            $this->SetFont('Arial','B',10);
-                            $this->Cell(140,5,utf8_decode($data['questions'][$i][$j]['Intitule'].':'),0,1);
-                            //Résultat de la question
-                            $this->SetFont('Arial','',10);
-                            $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
+                            }else{
 
-
-                        }else{
-
-                            $this->SetFont('Arial','B',10);
-                            $this->Cell(140,5,utf8_decode($data['questions'][$i][$j]['Intitule'].':'),0,0);
-                            $this->SetFont('Arial','',10);
-                            $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
+                                $this->SetFont('Arial','B',10);
+                                $this->Cell(140,5,utf8_decode($data['questions'][$i][$j]['Intitule'].':'),0,0);
+                                $this->SetFont('Arial','',10);
+                                $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
+                            }
                         }
                     }
 
