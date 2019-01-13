@@ -15,4 +15,19 @@ function jName($nomSintitule){
     return $tab[0];
 }
 
+function redirection(){
+
+  if(!isset($_SESSION["connecte"])){
+    header('Location: ?controller=connexion&action=ouverture_connexion');
+    exit();
+  }
+}
+
+function redirection2(){
+
+  if(isset($_SESSION["connecte"])){
+    header('Location: ?controller=home');
+    exit();
+  }
+}
 ?>

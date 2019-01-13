@@ -272,6 +272,9 @@ output {
 
 .pouet {color: blue;}
 
+.bgcl{
+  background: #FFFFFF;
+}
 .bleu {
 background-color:blue;
 }
@@ -322,5 +325,3 @@ background-color:yellow;
     font-size: 25px;
   }
 }
-
-/* HEARDER */
