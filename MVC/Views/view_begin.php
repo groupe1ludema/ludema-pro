@@ -25,7 +25,7 @@
 
 
         <!-- Barre en Haut -->
-         <header>
+         <header >
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="navbar-brand" href="?controller=home&action=home"><img class="logo img-responsive " src="Content/image/logo.png" alt="Logo Ludema"></a>
 
@@ -76,3 +76,4 @@
 
 
     </header>
+  

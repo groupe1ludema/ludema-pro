@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="col-lg-6 col-sm-6 btn-group ">
-            <a href="#" class="btn btn-light my-4 boutonMonCompte text-center">Ajouter un Pratiquant</a></div>
+            <a href="?controller=mesClients&action=formajouterClient" class="btn btn-light my-4 boutonMonCompte text-center">Ajouter un Pratiquant</a></div>
         <div class="col-lg-6 col-sm-6 btn-group ">
             <a href="#" class="btn btn-light my-4 boutonMonCompte text-center">Consulter Planning</a></div>
       </div>

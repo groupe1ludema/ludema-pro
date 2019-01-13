@@ -219,6 +219,22 @@ class Model {
 		}
 	}
 
+ 	public function get_my_donnees($nomYencli){
+
+		try{
+				$tab=explode(" ",$nomYencli);
+				$requete = $this->bd->prepare("SELECT * FROM client WHERE nom= :nom AND prenom= :prenom");
+				$requete->bindValue(":prenom",$tab[0]);
+				$requete->bindValue(":nom",$tab[1]);
+				$requete->execute();
+				return $requete->fetch(PDO::FETCH_ASSOC);
+
+	}
+	catch (PDOException $e) {
+		die ('Echec get_my_donnees erreur n°'. $e->getCode() .':'. $e->getMessage());
+	}
+	}
+
 	public function get_my_client(){
 		try{
 			if(isset($_SESSION['login'])){
