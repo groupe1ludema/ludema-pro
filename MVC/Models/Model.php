@@ -224,9 +224,10 @@ class Model {
 			if(isset($_SESSION['login'])){
 				$requete = $this->bd->prepare("SELECT * FROM client WHERE loginUtilisateur = :loginPro ");
 				$requete->bindValue(":loginPro",$_SESSION['login']);
-			}
+
 			$requete->execute();
 			return $requete->fetchall(PDO::FETCH_ASSOC);
+		}
 		}
 		catch (PDOException $e) {
 			die ('Echec ajouter_client erreur n°'. $e->getCode() .':'. $e->getMessage());

@@ -1,4 +1,5 @@
-<?php require("view_begin.php"); ?>
+<?php require("view_begin.php");
+ 			redirection();?>
 <main>
 <div class="container">
 	<div class="row justify-content-center arbreETtestselection">

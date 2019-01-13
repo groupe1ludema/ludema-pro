@@ -1,4 +1,5 @@
-<?php require("view_begin.php"); ?>
+<?php require("view_begin.php");
+      redirection2();?>
 
 
     <div class="login-page">

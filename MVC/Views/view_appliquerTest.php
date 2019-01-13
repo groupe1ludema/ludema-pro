@@ -1,5 +1,6 @@
 
-<?php require("view_begin.php"); ?>
+<?php require("view_begin.php");
+ 			redirection();?>
 <?php //var_dump($questions) ?>
 <?php //var_dump($description)?>
 

@@ -1,4 +1,5 @@
-<?php require("view_begin.php"); ?>
+<?php require("view_begin.php");
+ 			redirection();?>
 
 <?php //var_dump($data);?>
 <?php //var_dump($_SESSION);?>
