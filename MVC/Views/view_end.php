@@ -2,7 +2,7 @@
     <footer class="text-muted bg-dark">
       <div class="container">
         <div class="row">
-          
+
           <div class="col-sm-8 col-md-7">
             <h4 class="text-white">À propos</h4>
             <p class="text-muted">LUDEMA est une Société par Actions Simplifiées dont la présidente est Céline De Prins et le Directeur Général Mathieu Vergnault.
@@ -31,7 +31,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="Content/js/bootstrap.min.js"></script>
       </div>
-
+  </div>
     </footer>
 
   </body>
