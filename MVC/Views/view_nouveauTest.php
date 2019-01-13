@@ -5,8 +5,6 @@
 	<div class="row justify-content-center arbreETtestselection">
 		<div class="col-lg-5">
 			<ul class="accordion-menu"> <!-- Menu déroulant -->
-        <li><div class="dropdownlink">Vos compositions de test</div>
-
 					<?php foreach ($listeCategory as $category): ?>
 				  	<li>
 				    	<div class="dropdownlink"><?= e($category) ?></div>
