@@ -24,17 +24,18 @@ require('fpdf.php');
             // case jaune
             $date=date("d-m-Y");//date actuelle
 
-            $this->MultiCell(94,5,utf8_decode('Date de l\'évaluation : '.$date."\nProfessionnel : VERGNAULT Mathieu \nSalle : Petit Dojo \nContact : centre.ludema@gmail.com"),1,'L',false);
+            $this->MultiCell(94,5,utf8_decode('Date de l\'évaluation : '.$date."\nProfessionnel :".$_SESSION['login']." \nSalle : Petit Dojo \nContact : centre.ludema@gmail.com"),1,'L',false);
             $this->Ln(5);
             $this->Image('Utils/HTML2pdf/muscle.png',15,18,-150);
 
             //Espace margin
             $this->Cell(95,5,'',0,0);
             //case mauve
+            //var_dump($_SESSION);
             $this->SetFont('Arial','',12);
             $this->SetDrawColor(214, 0, 126  );
             $this->SetLineWidth(0.5);
-            $this->MultiCell(94,5,utf8_decode("NOM : ESTSOUPLE \nPrénom : Walid \nDate de naissance : 10/12/1957"),1,'L',false);
+            $this->MultiCell(94,5,utf8_decode( "NOM : ESTSOUPLE \nPrénom : Walid \nDate de naissance : 10/12/1957"),1,'L',false);
             $this->Ln(10);
 
 
@@ -180,20 +181,21 @@ require('fpdf.php');
 
             }
             //var_dump($_POST['bilan_globale']);
-            $this->SetDrawColor(255,255,255);
-            $this->SetTextColor(255, 255, 255);     //couleur barre de titre
-            $this->SetFillColor(113, 194, 174);
-            $this->SetFont('Arial','B',16);
-            $this->MultiCell(189,6,utf8_decode("Commentaire Globale"),1,'C',true);
-            $this->Ln(5);
+            if(trim($_POST[$name]) != ''){
+                $this->SetDrawColor(255,255,255);
+                $this->SetTextColor(255, 255, 255);     //couleur barre de titre
+                $this->SetFillColor(113, 194, 174);
+                $this->SetFont('Arial','B',16);
+                $this->MultiCell(189,6,utf8_decode("Commentaire Globale"),1,'C',true);
+                $this->Ln(5);
 
-            $this->SetFont('Arial','',12);
-            $this->SetDrawColor(214, 0, 126  );
-            $this->SetTextColor(3,61,134);
-            $this->SetLineWidth(0.5);
-            $this->MultiCell(188,5,utf8_decode($_POST['bilan_globale']),1,'L',false);
-            $this->Ln();
-           
+                $this->SetFont('Arial','',12);
+                $this->SetDrawColor(255, 0, 0  );
+                $this->SetTextColor(3,61,134);
+                $this->SetLineWidth(0.5);
+                $this->MultiCell(188,5,utf8_decode($_POST['bilan_globale']),1,'L',false);
+                $this->Ln();
+            }
         }
     }
 
