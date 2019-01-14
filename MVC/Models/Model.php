@@ -139,6 +139,70 @@ class Model {
 		}
 	}
 
+	public function get_detailComposition($nomComposition, $login){
+		try{
+			$requete = $this->bd->prepare("SELECT detailComposition FROM Composition where login = :login AND nomComposition = :nomComposition");
+			$requete->bindValue(":login",$login);
+			$requete->bindValue(":nomComposition",$nomComposition);
+			$requete->execute();
+			return $requete->fetch(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_detailComposition erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function ajout_composition($nomComposition,$detailComposition, $login){ //Permet d'ajouter à la base de données une composition
+		try
+		{
+				$requete = $this->bd->prepare('INSERT INTO Composition(nomComposition,detailComposition,login) VALUES (:nomComposition, :detailComposition, :login)');
+				$requete->bindValue(":nomComposition",$nomComposition);
+				$requete->bindValue(":detailComposition",$detailComposition);
+				$requete->bindValue(":login",$login);
+				return $requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec ajout_composition erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function supprimer_composition($nomComposition,$login){
+		try{
+			$requete = $this->bd->prepare('DELETE FROM Composition where nomComposition = :nomComposition AND login = :login');
+			$requete->bindValue(":nomComposition",$nomComposition);
+			$requete->bindValue(":login",$login);
+			return $requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec suprimmer_composition erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function existe_composition($nomComposition, $login){
+		try{
+			$requete = $this->bd->prepare("SELECT EXISTS (SELECT nomComposition from Composition where login = :login AND nomComposition = :nomComposition) as nomCompo");
+			$requete->bindValue(":login",$login);
+			$requete->bindValue(":nomComposition",$nomComposition);
+			$requete->execute();
+			return $requete->fetch();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function get_nomComposition(){
+	try{
+		$requete = $this->bd->prepare('Select nomComposition FROM Composition');
+		$requete->execute();
+		return $requete->fetchAll(PDO::FETCH_ASSOC);
+	}
+	catch (PDOException $e) {
+		die ('Echec get_all_tests, erreur n°'. $e->getCode() .':'. $e->getMessage());
+	}
+}
+
+
 	public function insert_inscription($data=[]){
 		try{
 			$requete = $this->bd->prepare("INSERT INTO utilisateur(login,email,mdp,prenom,nom) values(:login,:email,:mdp,:prenom,:nom)");
@@ -219,22 +283,6 @@ class Model {
 		}
 	}
 
- 	public function get_my_donnees($nomYencli){
-
-		try{
-				$tab=explode(" ",$nomYencli);
-				$requete = $this->bd->prepare("SELECT * FROM client WHERE nom= :nom AND prenom= :prenom");
-				$requete->bindValue(":prenom",$tab[0]);
-				$requete->bindValue(":nom",$tab[1]);
-				$requete->execute();
-				return $requete->fetch(PDO::FETCH_ASSOC);
-
-	}
-	catch (PDOException $e) {
-		die ('Echec get_my_donnees erreur n°'. $e->getCode() .':'. $e->getMessage());
-	}
-	}
-
 	public function get_my_client(){
 		try{
 			if(isset($_SESSION['login'])){
@@ -249,4 +297,49 @@ class Model {
 			die ('Echec ajouter_client erreur n°'. $e->getCode() .':'. $e->getMessage());
 		}
 	}
+
+	public function modifier_client($id,$login,$infos){
+			try{
+				$requete = $this->bd->prepare("UPDATE client SET prenom=:prenom,nom=:nom,age=:age,sexe=:sexe,note=:note WHERE idClient=:id");
+				//$requete->bindValue(":loginPro",$login);
+				$requete->bindValue(":id",$id);
+				$requete->bindValue(":prenom",$infos['prenom']);
+				$requete->bindValue(":nom",$infos['nom']);
+				$requete->bindValue(":age",$infos['age']);
+				$requete->bindValue(":sexe",$infos['sexe']);
+				$requete->bindValue(":note",$infos['note']);
+				$requete->execute();
+			}
+			catch (PDOException $e) {
+				die ('Echec modifier_client erreur n°'. $e->getCode() .':'. $e->getMessage());
+			}
+		}
+
+		public function supprimer_client($id,$login){
+			try{
+				$requete = $this->bd->prepare("DELETE FROM client WHERE idClient = :id AND loginUtilisateur = :loginPro;");
+				$requete->bindValue(":id",$id);
+				$requete->bindValue(":loginPro",$login);
+				$requete->execute();
+			}
+			catch (PDOException $e) {
+				die ('Echec supprimer_client erreur n°'. $e->getCode() .':'. $e->getMessage());
+			}
+		}
+
+	 	public function get_my_donnees($id){
+
+			try{
+					//$tab=explode(" ",$nomYencli);
+					$requete = $this->bd->prepare("SELECT * FROM client WHERE idClient= :id");
+					$requete->bindValue(":id",$id);
+					$requete->execute();
+					return $requete->fetch(PDO::FETCH_ASSOC);
+
+		}
+		catch (PDOException $e) {
+			die ('Echec get_my_donnees erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
 }

@@ -14,6 +14,7 @@ class Controller_genererpdf extends Controller {
       $categorie[$i]=$m->get_categorie($_SESSION['listTestSelectionnes'][$i]['catgeorie']);
     }
 
+
     $data = [
       /*"listeTest"  => $m->get_question($_SESSION['listTestSelectionnes']),*/
       "questions" => $question,

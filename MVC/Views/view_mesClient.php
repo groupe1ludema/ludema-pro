@@ -4,7 +4,7 @@
 <?php ?>
 <?php //var_dump($_SESSION);?>
 
-<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=donneeClient' method='post'>
+<?php /* <form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=donneeClient' method='post'>
           	<h1 class="titretest "> Choix du pratiquant </h1>
             <div>
               <SELECT name="client">
@@ -14,11 +14,41 @@
               </SELECT>
       	      <input type="submit" class="btn  btn-primary btnpdf" role="button" value='GO'>
             </div>
-</form>
-        <?php if(issEt($_POST["client"])) : ?>
-          <form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=saveClient' method='post'> <!-- Client = pratiquant -->
-        				<h1 class="titretest ">  <?= $_POST["client"];?>  </h1>
+</form> */ ?>
 
+              <form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=donneeClient' method='post'>
+                  <h1 class="titretest "> Choix du pratiquant </h1>
+                    <!-- tableau de pratiquants-->
+                  <div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Prénom</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Particularité</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php foreach($listeClients as $client) : ?>
+                            <tr>
+                              <td><?= e($client['nom'])?></a></td>
+                              <td><?= e($client['prenom'])?></td>
+                              <td><?= e($client['age'])?></td>
+                              <td><?= e($client['note'])?></td>
+                              <td><a href="?controller=mesClients&action=donneeClient&id=<?= e($client['idClient']) ?>">Choisir</a></td>
+                                <td><a href="?controller=mesClients&action=suppClient&id=<?= e($client['idClient']) ?>"><img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a></td>
+                            </tr>
+                          <?php endforeach ?>
+                        </tbody>
+                      </table>
+
+                  </div>
+              </form>
+
+        <?php if(issEt($clientChoisi)) : ?>
+          <form class=" offset-lg-3 col-lg-6 formultest" action="?controller=mesClients&action=modifierClient&id=<?= $_GET['id']?>" method='post'> <!-- Client = pratiquant -->
+        				<h1 class="titretest "> <?= $clientChoisi["prenom"]?> <?= $clientChoisi["nom"]?> </h1>
                 <div>
                 <label >Nom :</label> <input type="text" class="form-control " name="nom" value=<?= $clientChoisi["nom"]?> />
                 </div>
@@ -51,7 +81,7 @@
                 </div>
 
                 <div>
-        	      <input type="submit" class="btn  btn-primary btnpdf" role="button" value='Sauvergarder les modifications'>
+        	      <input type="submit" class="btn  btn-primary btnpdf" role="button" value='Sauvegarder les modifications'>
                 </div>
         </form>
         <?php endif?>

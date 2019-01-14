@@ -30,10 +30,22 @@ class Controller_mesClients extends Controller {
     $this->render2("ajouterClient");
   }
 
+  public function action_modifierClient(){
+    $m = Model::get_model();
+    $m->modifier_client($_GET['id'],$_SESSION['login'],$_POST);
+    $this->action_default();
+  }
+
+  public function action_suppClient(){
+    $m = Model::get_model();
+    $m->supprimer_client($_GET['id'],$_SESSION['login']);
+    $this->action_default();
+  }
+
   public function action_donneeClient(){
     $m = Model::get_model();
     $data = [
-            "clientChoisi" => $m->get_my_donnees($_POST["client"]),
+            "clientChoisi" => $m->get_my_donnees($_GET["id"]),
             "listeClients" => $m->get_my_client()
 
         ];
