@@ -115,6 +115,16 @@ class Model {
 		}
 	}
 
+	public function supprimer_tout_les_tests(){
+		try{
+			$requete = $this->bd->prepare('DELETE FROM panier');
+			return $requete->execute();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
 	public function get_questions($test){
 		try{
 			$requete = $this->bd->prepare("SELECT * FROM Questions where Test = :test");

@@ -66,5 +66,12 @@ class Controller_listeTest extends Controller {
     $this->action_listeTest();
 
   }
+
+  public function action_supprimer_tout_test(){ //Permet de supprimer les tests séléctionnés par le profesionnel
+    $m = Model::get_model();
+    $true = $m->supprimer_tout_les_tests();
+    $this->action_listeTest();
+  }
+
 }
 ?>

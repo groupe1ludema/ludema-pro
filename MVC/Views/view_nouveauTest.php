@@ -54,7 +54,7 @@ redirection();?>
                 <img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a> </center>
               </p>
             <?php endforeach ?>
-
+            <center><p> Tout retirer : <a href="?controller=listeTest&action=supprimer_tout_test"><img class='icone' src='Content/image/corbeille.png' alt='supprimer' height=20 width = 20 /></a></p></center>
             <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a> </center>
             <form class="login-form mb-2" method = "post" action="?controller=listeTest&action=sauvegarderComposition">
               <input type="text" placeholder="Nom composition de test" name="nomCompo"/>
