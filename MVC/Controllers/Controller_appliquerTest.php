@@ -6,7 +6,7 @@ class Controller_appliquerTest extends Controller {
   }
 
   public function action_afficherTest(){
-    if(isset($_SESSION['listTestSelectionnes'])){
+    if(isset($_SESSION['listTestSelectionnes']) && !empty($_SESSION['listTestSelectionnes'])){
     $m = Model::get_model();
     $n=sizeof($_SESSION['listTestSelectionnes']);
     for($i=0;$i<$n;$i++){
@@ -24,8 +24,7 @@ class Controller_appliquerTest extends Controller {
     if(isset($data))
       $this->render("appliquerTest",$data);
     else
-      $this->render2("appliquerTest");
-
+    header('Location: http://localhost/LUDEMA/MVC/?controller=listeTest&action=choixTest');
   }
 }
 ?>

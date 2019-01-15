@@ -10,7 +10,7 @@
 		<?php foreach($questions[$i] as $testAndQ ) :?>
 				<label for="text"><?= $testAndQ['Intitule'];?></label> <!-- Ici sera affiché l'intitulé de la question -->
 
-				<?php $name=str_replace(' ','',$testAndQ['Intitule'].'DE'.$testAndQ['Test']);
+				<?php $name=str_replace(' ','',$testAndQ['Intitule'].'DE'.$testAndQ['Test']);$name=str_replace('-','',$name);
 				 ?>
 
 		<?php if($testAndQ['Inputtype']=="int") :?>

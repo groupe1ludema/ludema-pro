@@ -7,13 +7,13 @@ class Controller_listeTest extends Controller {
 
   public function action_listeTest(){
     $m = Model::get_model();
-     $data = [
-            "listeTest" => $m->get_all_tests(),
-            "listeCategory" => $m->get_category(),
-            "tab" => $m->choix_test_ajouté(),
-            "nomCompo"=> $m->get_nomComposition()
-        ];
-    $this->render("nouveauTest",$data);
+       $data = [
+              "listeTest" => $m->get_all_tests(),
+              "listeCategory" => $m->get_category(),
+              "tab" => $m->choix_test_ajouté(),
+              "nomCompo"=> $m->get_nomComposition()
+          ];
+      $this->render("nouveauTest",$data);
   }
 
   public function action_choixtest(){ //Permet de selectionner les tests séléctionnés par le profesionnel
@@ -53,8 +53,9 @@ class Controller_listeTest extends Controller {
     $listeCompo=substr($listeCompo, 0, -1);
     $tab = $m->existe_Composition($_POST['nomCompo'],$_SESSION['login']);
     if($tab["nomCompo"]==0){
-      if($m->ajout_composition($_POST['nomCompo'],$listeCompo,$_SESSION['login']))
-      $this->action_listeTest();
+        if($m->ajout_composition($_POST['nomCompo'],$listeCompo,$_SESSION['login'])){
+          $this->action_listeTest();
+        }
     }
     else
       echo "Composition existe déjà !";

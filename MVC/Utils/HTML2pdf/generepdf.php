@@ -11,7 +11,7 @@ require('fpdf.php');
     //var_dump($_POST);
     class myPDF extends FPDF{
         function header(){
-
+          if($this->PageNo() == 1){
             $this->SetFont('Arial','B',18);
             $this->SetTextColor(3,61,134);
             $this->Cell(95,5,utf8_decode('Bilan de condition physique'),0,0);
@@ -37,7 +37,7 @@ require('fpdf.php');
             $this->SetLineWidth(0.5);
             $this->MultiCell(94,5,utf8_decode( "NOM : ESTSOUPLE \nPrénom : Walid \nDate de naissance : 10/12/1957"),1,'L',false);
             $this->Ln(10);
-
+          }
 
         }
 
@@ -77,13 +77,13 @@ require('fpdf.php');
             for($j=0;$j<sizeof($data['questions'][0]);$j++){
 
                 $name=str_replace(' ','',$data['questions'][0][$j]['Intitule'].'DE'.$data['questions'][0][$j]['Test']);
-
+                $name=str_replace('-','',$name);
 
                // var_dump($_POST[$name]);
-                
+
                 //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
                 if(isset($_POST[$name]) and trim($_POST[$name]) != ''){
-                    
+
                         if($data['questions'][0][$j]['Inputtype'] == 'commentaire' || $data['questions'][0][$j]['Inputtype'] == 'string' ){
                             //Question mis au début de la ligne
                             $this->SetFont('Arial','B',10);
@@ -100,7 +100,7 @@ require('fpdf.php');
                             $this->SetFont('Arial','',10);
                             $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
                         }
-                    
+
                 }
 
                 $this->Ln(0.5);
@@ -108,7 +108,7 @@ require('fpdf.php');
              }
             for($i=1;$i<$data['nbtest'];$i++){
 
-                
+
                 //var_dump($data['questions']);
                 //titre
                 if($data['categorie'][$i][0]['categorie'] == $data['categorie'][$i-1][0]['categorie']){
@@ -140,27 +140,27 @@ require('fpdf.php');
 
                 }
                 // var_dump($data['questions']);
-                
+
                 for($j=0;$j<sizeof($data['questions'][$i]);$j++){
 
                     $name=str_replace(' ','',$data['questions'][$i][$j]['Intitule'].'DE'.$data['questions'][$i][$j]['Test']);
-                    
+                    $name=str_replace('-','',$name);
 
-                    
+
                     //var_dump($name.'/'.$data['questions'][$i][$j]['Test']);
                     if(isset($_POST[$name]) and trim($_POST[$name]) != ''){
-                       
-                           
+
+
                             if($data['questions'][$i][$j]['Inputtype'] == 'commentaire' || $data['questions'][$i][$j]['Inputtype'] == 'string' ){
                                 //Question mis au début de la ligne
-                                
-                            
+
+
                                 $this->SetFont('Arial','B',10);
                                 $this->Cell(140,5,utf8_decode($data['questions'][$i][$j]['Intitule'].':'),0,1);
                                 //Résultat de la question
                                 $this->SetFont('Arial','',10);
                                 $this->MultiCell(189,6,utf8_decode($_POST[$name]),0,'L',false);
-                                
+
 
                             }else{
 
@@ -169,7 +169,7 @@ require('fpdf.php');
                                 $this->SetFont('Arial','',10);
                                 $this->MultiCell(49,6,utf8_decode($_POST[$name]),0,'L',false);
                             }
-                        
+
                     }
 
                     $this->Ln(0.5);
