@@ -54,11 +54,14 @@ class Controller_listeTest extends Controller {
     $tab = $m->existe_Composition($_POST['nomCompo'],$_SESSION['login']);
     if($tab["nomCompo"]==0){
         if($m->ajout_composition($_POST['nomCompo'],$listeCompo,$_SESSION['login'])){
+          $_SESSION["nomCompo"] = 0;
           $this->action_listeTest();
         }
     }
     else
-      echo "Composition existe déjà !";
+      $_SESSION["nomCompo"] = 1;
+      $this->action_listeTest();
+
   }
 
   public function action_supprimerComposition(){ //Permet de supprimer les tests séléctionnés par le profesionnel

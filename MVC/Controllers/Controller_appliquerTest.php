@@ -21,10 +21,12 @@ class Controller_appliquerTest extends Controller {
             "nbtest"=>$n
         ];
     }
-    if(isset($data))
+    if(isset($data)){
       $this->render("appliquerTest",$data);
+      $m->supprimer_tout_les_tests();
+    }
     else
-    header('Location: http://localhost/LUDEMA/MVC/?controller=listeTest&action=choixTest');
+    header('Location: ?controller=listeTest&action=choixTest');
   }
 }
 ?>

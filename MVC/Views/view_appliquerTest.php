@@ -13,10 +13,15 @@
 				<?php $name=str_replace(' ','',$testAndQ['Intitule'].'DE'.$testAndQ['Test']);$name=str_replace('-','',$name);
 				 ?>
 
-		<?php if($testAndQ['Inputtype']=="int") :?>
-				<div class="form-group ">
-	    	<input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?= e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
-				</div>
+    <?php if($testAndQ['Inputtype']=="int") :?>
+        <div class="form-group ">
+        <input type="number" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?= e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
+        </div>
+
+    <?php elseif($testAndQ['Inputtype']=="petitString") :?>
+        <div class="form-group ">
+        <input type="text" class="form-control  col-lg-1 col-md-1 col-sm-2 " name=<?= e($name);?> /> <!-- on affiche une petite zone de texte et un chiffre est attendu -->
+        </div>
 		<?php elseif($testAndQ['Inputtype']=="string") :?>
 				<div class="form-group">
 				<input type="text" class="form-control" name=<?=  e($name);?> /> <!-- on affiche une petite zone de texte et un String est attendu -->

@@ -54,7 +54,10 @@ redirection();?>
                 <img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a> </center>
               </p>
             <?php endforeach ?>
-            <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a>  <a href="?controller=listeTest&action=supprimer_tout_test"><img class='icone' src='Content/image/corbeille-windows.png' alt='supprimer' height=30 width = 30 /></a> </center>
+            <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a>  <a class="" href="?controller=listeTest&action=supprimer_tout_test"><img class='icone' src='Content/image/corbeille-windows.png' alt='supprimer' height=30 width = 30 /></a> </center>
+            <?php if(isset($_SESSION["nomCompo"]) && $_SESSION["nomCompo"] == 1) : ?>
+            <center><p> Le nom de la composition existe déjà ! </p></center>
+            <?php endif ?>
             <form class="login-form mb-2" method = "post" action="?controller=listeTest&action=sauvegarderComposition">
               <input type="text" placeholder="Nom composition de test" name="nomCompo" maxlength="30"/>
               <input type="submit" name="sauvegarder" class="btn btn-primary sauv" value="Sauvegarder"/>
