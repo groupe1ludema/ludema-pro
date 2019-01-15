@@ -12,6 +12,7 @@
     <p class="col-lg-6 text-center"> Ici, vous pouvez ajouter un nouveau pratiquant à votre compte. </p>
     </div>
   </div>
+  <div class="container-fluid mb-4">
 	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=mesClients&action=ajouterClient' method='post'> <!-- Client = pratiquant -->
 
         <div>
@@ -45,5 +46,6 @@
 	      <input type="submit" class="btn  btn-primary btnpdf" role="button" value='Ajouter'>
         </div>
 </form>
+</div>
 
 <?php require("view_end.php"); ?>

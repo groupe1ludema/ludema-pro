@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 jan. 2019 à 18:11
+-- Généré le :  mar. 15 jan. 2019 à 21:10
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.0.29
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `sexe` varchar(10) NOT NULL,
   `note` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
@@ -70,9 +70,11 @@ INSERT INTO `client` (`idClient`, `loginUtilisateur`, `prenom`, `nom`, `age`, `s
 (24, 'Walidestsouple', 'Walid', 'Messaoudi', 19, 'Homme', ''),
 (25, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
 (26, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
-(36, 'ludema', 'Emeric', 'Dupil', 21, 'Homme', 'bo'),
-(37, 'ludema', 'Walid', 'Messaoudi', 20, 'Homme', 'doigbo'),
-(38, 'Abd12', 'Pouch', 'Papouche', 19, 'Homme', 'zefoihzefoiuh');
+(43, 'ludema', 'Emilia', 'Clarke', 32, 'Femme', ''),
+(41, 'Skyy', 'Walid', 'Messaoudi', 19, 'Homme', 'Il n\'\"en a pas '),
+(42, 'ludema', 'Florian', 'Langele', 19, 'Homme', 'Problèmes de dos '),
+(38, 'Abd12', 'Pouch', 'Papouche', 19, 'Homme', 'zefoihzefoiuh'),
+(44, 'ludema', 'Luke', 'Skywalker', 20, 'Homme', 'Amputé de la main droite ');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,8 @@ CREATE TABLE IF NOT EXISTS `composition` (
 
 INSERT INTO `composition` (`nomComposition`, `login`, `detailComposition`) VALUES
 ('All tests', 'ludema', 'Distance doigt sol#Seated Medicine Ball Throw#Hand-Grip#Abdominal Strength Test#1-RM#Sorensen#Shirado-Ito#Assis-debout 30 secondes#Step Test de 3 minutes#Test de marche de 10 mètres#Harvard Step Test#Test de marche de 6 minutes#Sit and reach#Chair sit and reach#Sargent test#One-leg balance#Romberg test#FSST#Timed Up and Go#FRT'),
-('Ma compo 3', 'ludema', 'Assis-debout 30 secondes#1-RM');
+('Ma compo 3', 'ludema', 'Assis-debout 30 secondes#1-RM'),
+('Ma compo 1 ', 'Skyy', 'Harvard Step Test#Hand-Grip');
 
 -- --------------------------------------------------------
 
@@ -105,13 +108,6 @@ DROP TABLE IF EXISTS `panier`;
 CREATE TABLE IF NOT EXISTS `panier` (
   `catgeorie` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `panier`
---
-
-INSERT INTO `panier` (`catgeorie`) VALUES
-('Assis-debout 30 secondes');
 
 -- --------------------------------------------------------
 
@@ -317,8 +313,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`login`, `email`, `prenom`, `nom`, `historique_compo`, `mdp`) VALUES
-('ludema', 'Ludema@homail.fr', 'lud', 'Ludema', NULL, '$2y$10$TB2wJ5BBH902HDf.jk4DieYfSO78cEjdNB07cx2uAZFrabl5uNLcy'),
-('Abd12', 'abder@gmail.fr', 'Abder', 'Meziane', NULL, '$2y$10$jgiq82Bm8oAb0oBm9qUtzeSA5tgSg30erLL4o0zxnz5P/ItaSWLtS');
+('ludema', 'Ludema@homail.fr', 'lud', 'Ludema', NULL, '$2y$10$TB2wJ5BBH902HDf.jk4DieYfSO78cEjdNB07cx2uAZFrabl5uNLcy');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
