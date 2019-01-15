@@ -7,7 +7,8 @@ class Controller_listeTest extends Controller {
 
   public function action_listeTest(){
     $m = Model::get_model();
-     $data = [
+    if(isset($_SESSION['login'])){
+      $data = [
             "listeTest" => $m->get_all_tests(),
             "listeCategory" => $m->get_category(),
             "tab" => $m->choix_test_ajouté(),
@@ -15,7 +16,11 @@ class Controller_listeTest extends Controller {
             "listeClients" => $m->get_my_client()
 
         ];
-    $this->render("nouveauTest",$data);
+        $this->render("nouveauTest",$data);
+    }
+    else {
+      $this->render2("nouveauTest");
+    }
   }
 
   public function action_choixtest(){ //Permet de selectionner les tests séléctionnés par le profesionnel
