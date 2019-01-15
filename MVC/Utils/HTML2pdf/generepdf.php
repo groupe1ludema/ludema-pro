@@ -11,16 +11,12 @@ require('fpdf.php');
     //var_dump($_POST);
     class myPDF extends FPDF{
         function header(){
-          if($this->PageNo() == 1){
             $this->SetFont('Arial','B',18);
             $this->SetTextColor(3,61,134);
             $this->Cell(95,5,utf8_decode('Bilan de condition physique'),0,0);
             $this->SetFont('Arial','',12);
             $this->SetDrawColor(241, 196, 15);
             $this->SetLineWidth(0.5);
-
-
-
             // case jaune
             $date=date("d-m-Y");//date actuelle
 
@@ -37,8 +33,6 @@ require('fpdf.php');
             $this->SetLineWidth(0.5);
             $this->MultiCell(94,5,utf8_decode( "NOM : ESTSOUPLE \nPrénom : Walid \nDate de naissance : 10/12/1957"),1,'L',false);
             $this->Ln(10);
-          }
-
         }
 
 

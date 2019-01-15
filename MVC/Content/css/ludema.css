@@ -297,7 +297,9 @@ background-color:yellow;
 
 /* VUE monCompte */
 
-
+.bcg{
+background-color:#C0C0C0;
+}
 
 .boutonMonCompte{
   width:100%;
