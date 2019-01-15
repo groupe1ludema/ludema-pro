@@ -173,7 +173,7 @@ require('fpdf.php');
 
             }
             //var_dump($_POST['bilan_globale']);
-            if(trim($_POST[$name]) != ''){
+            if(trim($_POST['bilan_globale']) != ''){
                 $this->SetDrawColor(255,255,255);
                 $this->SetTextColor(255, 255, 255);     //couleur barre de titre
                 $this->SetFillColor(113, 194, 174);
