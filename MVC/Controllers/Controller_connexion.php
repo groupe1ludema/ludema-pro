@@ -41,6 +41,8 @@ class Controller_connexion extends Controller {
   public function action_deconnexion(){
     session_unset();session_destroy();
     $this->render2("accueil");
+    $m = Model::get_model();
+    $m->supprimer_tout_les_tests();
   }
 
   public function action_inscription_insert(){
