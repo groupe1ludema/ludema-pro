@@ -52,18 +52,31 @@ class Controller_listeTest extends Controller {
     }
     $listeCompo=substr($listeCompo, 0, -1);
     $tab = $m->existe_Composition($_POST['nomCompo'],$_SESSION['login']);
-    if($tab["nomCompo"]==0){
-        if($m->ajout_composition($_POST['nomCompo'],$listeCompo,$_SESSION['login'])){
-          $_SESSION["nomCompo"] = 0;
+    $v = $m->test_exists();
+    if(!empty($v[0])){
+      $_SESSION["testVide"] = 0;
+      if($tab["nomCompo"]==0){
+        if(isset($_POST["nomCompo"]) && trim($_POST["nomCompo"])!=""){
+          if($m->ajout_composition($_POST['nomCompo'],$listeCompo,$_SESSION['login'])){
+            $_SESSION["nomCompo"] = 0;
+            $this->action_listeTest();
+          }
+        }
+        else {
+          $_SESSION["CompoVide"] = 1;
           $this->action_listeTest();
         }
+      }
+      else {
+        $_SESSION["nomCompo"] = 1;
+        $this->action_listeTest();
+      }
     }
-    else
-      $_SESSION["nomCompo"] = 1;
+    else{
+      $_SESSION["testVide"] = 1;
       $this->action_listeTest();
-
+    }
   }
-
   public function action_supprimerComposition(){ //Permet de supprimer les tests séléctionnés par le profesionnel
     $m = Model::get_model();
     $true = $m->supprimer_composition($_GET["nomComposition"],$_SESSION['login']);

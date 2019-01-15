@@ -79,7 +79,7 @@ class Controller_connexion extends Controller {
         $data = array('login'=>$_POST["login"],'email'=>$_POST["email"], 'mdp'=>$mdp, 'prenom'=>$_POST["prenom"], 'nom'=>$_POST["nom"]);
         $true = $m->insert_inscription($data);
         if($true){
-          $this->render("bienvenu");
+          header('Location:?controller=connexion');
         }
       }
     }

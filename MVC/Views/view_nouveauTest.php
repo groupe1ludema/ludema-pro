@@ -1,15 +1,17 @@
 <?php require("view_begin.php");
 redirection();?>
 
-<div class="container">
+<div class="container-fluid  album bg-light">
   <div class="row">
-    <h2> Sélection de tests </h2>
+    <h2 class="title col-lg-12"> Sélection de tests </h2>
   </div>
   <div class="row col-lg-12 offset-md-3 col-md-6 ">
     <p class="col-lg-6 text-center"> Pour créer un nouveau test, vous devez séléctionner les tests que vous souhaitez effectuer. </br>
     Vous avez aussi la possibilité de sauvegarder une composition de test afin d'avoir un raccourci pour vos tests les plus utilisés.</p>
 
   </div>
+</div>
+<div class="container">
   <div class="row justify-content-center arbreETtestselection">
     <div class="col-lg-4 col-md-5 col-sm-8 col-xs-8 col-11">
         <div class="card bg-light mb-3">    <!-- PARTIE COMPOSITION DE TEST -->
@@ -54,9 +56,18 @@ redirection();?>
                 <img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a> </center>
               </p>
             <?php endforeach ?>
-            <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a>  <a class="" href="?controller=listeTest&action=supprimer_tout_test"><img class='icone' src='Content/image/corbeille-windows.png' alt='supprimer' height=30 width = 30 /></a> </center>
+            <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a>  <a class="bleu" href="?controller=listeTest&action=supprimer_tout_test"><img class='icone' src='Content/image/bin.png' alt='supprimer' height=30 width = 30 /></a> </center>
             <?php if(isset($_SESSION["nomCompo"]) && $_SESSION["nomCompo"] == 1) : ?>
-            <center><p> Le nom de la composition existe déjà ! </p></center>
+              <center><p> Le nom de la composition existe déjà ! </p></center>
+              <?php $_SESSION["nomCompo"] = 0; ?>
+            <?php endif ?>
+            <?php if(isset($_SESSION["CompoVide"]) && $_SESSION["CompoVide"] == 1) : ?>
+              <center> <p> Veuillez entrer un nom de composition ! </p> </center>
+              <?php $_SESSION["CompoVide"] = 0?>
+            <?php endif ?>
+            <?php if(isset($_SESSION["testVide"]) && $_SESSION["testVide"] == 1) : ?>
+              <center> <p> Veuillez selectionner des tests ! </p> </center>
+              <?php $_SESSION["testVide"] = 0?>
             <?php endif ?>
             <form class="login-form mb-2" method = "post" action="?controller=listeTest&action=sauvegarderComposition">
               <input type="text" placeholder="Nom composition de test" name="nomCompo" maxlength="30"/>

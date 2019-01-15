@@ -20,45 +20,43 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="Content/image/rameur.jpg" alt="Card image cap">
+                <img class="card-img-top" src="Content/image/onelegbalance.jpeg" alt="One-leg balance">
                 <div class="card-body">
-                  <p class="card-text">Le Test du rameur: il consiste à effectuer 20 répétitions en moins de 30 secondes.</p>
+                  <p class="card-text">One-leg balance</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
+                      <a href="?controller=listeTest&action=choixtest&categorie=One-leg+balance"><button type="button" class="btn btn-sm btn-outline-secondary"> Faire Ce test</button> </a>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
-                    <small class="text-muted">30 sec</small>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="Content/image/squat.jpg" alt="Card image cap">
+                <img class="card-img-top" src="Content/image/testdemarche.jpeg" alt="Test de marche">
                 <div class="card-body">
-                  <p class="card-text">Le Test du Squat: il s'agit de réaliser 50 squats en moins de 1 minute.</p>
+                  <p class="card-text">Test de marche</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
+                      <a href="?controller=listeTest&action=choixtest&categorie=Test+de+marche+de+6+minutes"><button type="button" class="btn btn-sm btn-outline-secondary"> Faire Ce test</button> </a>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
-                    <small class="text-muted">1 min</small>
+                    <small class="text-muted">6 min</small>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="Content/image/v%C3%A9lo.jpg" alt="Card image cap">
+                <img class="card-img-top" src="Content/image/handgrip.jpeg" alt="Handgrip">
                 <div class="card-body">
-                  <p class="card-text">Le Test du vélo: ce test consiste à pédaler pensant 30 minutes.</p>
+                  <p class="card-text">Hand-grip</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
+                      <a href="?controller=listeTest&action=choixtest&categorie=Hand-Grip"><button type="button" class="btn btn-sm btn-outline-secondary"> Faire Ce test</button> </a>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
-                    <small class="text-muted">30 mins</small>
                   </div>
                 </div>
               </div>

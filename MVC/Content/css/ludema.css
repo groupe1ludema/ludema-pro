@@ -16,13 +16,6 @@ a {
   text-decoration: none;
 }
 
-h2 {
-  text-align: center;
-  margin: 20px auto;
-  color: #fff;
-}
-
-
 
 .logo{
   border-radius: 4px;
@@ -41,10 +34,6 @@ h2 {
 }
 
 /* ------------------------------------- */
-.aacordeon{
-
-
-}
 :root {
   --jumbotron-padding-y: 3rem;
 }
@@ -96,6 +85,12 @@ footer p {
 }
 
 /* ICI SE TROUVE LE CSS DE LA PAGE NOUVEAU TEST */
+
+.title{
+  text-align:center;
+  font-size:39px;
+  color:#333837;
+}
 
 .sauv {
   font-size:0.9em;

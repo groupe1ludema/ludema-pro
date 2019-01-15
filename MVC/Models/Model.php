@@ -352,4 +352,15 @@ class Model {
 		}
 	}
 
+	public function test_exists(){
+        try{
+            $requete = $this->bd->prepare('SELECT * FROM panier');
+            $requete->execute();
+            return $requete->fetchall(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e) {
+            die ('Echec get_category erreur n°'. $e->getCode() .':'. $e->getMessage());
+        }
+    }
+
 }
