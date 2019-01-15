@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 jan. 2019 à 11:44
+-- Généré le :  mar. 15 jan. 2019 à 18:11
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.0.29
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `sexe` varchar(10) NOT NULL,
   `note` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
@@ -70,8 +70,9 @@ INSERT INTO `client` (`idClient`, `loginUtilisateur`, `prenom`, `nom`, `age`, `s
 (24, 'Walidestsouple', 'Walid', 'Messaoudi', 19, 'Homme', ''),
 (25, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
 (26, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
-(27, 'ludema', 'Ali', 'Jomaa', 15, 'Homme', 'problème de nez'),
-(28, 'ludema', 'Fabien', 'Sam', 13, 'Homme', 'très chinois');
+(36, 'ludema', 'Emeric', 'Dupil', 21, 'Homme', 'bo'),
+(37, 'ludema', 'Walid', 'Messaoudi', 20, 'Homme', 'doigbo'),
+(38, 'Abd12', 'Pouch', 'Papouche', 19, 'Homme', 'zefoihzefoiuh');
 
 -- --------------------------------------------------------
 
@@ -92,8 +93,7 @@ CREATE TABLE IF NOT EXISTS `composition` (
 
 INSERT INTO `composition` (`nomComposition`, `login`, `detailComposition`) VALUES
 ('All tests', 'ludema', 'Distance doigt sol#Seated Medicine Ball Throw#Hand-Grip#Abdominal Strength Test#1-RM#Sorensen#Shirado-Ito#Assis-debout 30 secondes#Step Test de 3 minutes#Test de marche de 10 mètres#Harvard Step Test#Test de marche de 6 minutes#Sit and reach#Chair sit and reach#Sargent test#One-leg balance#Romberg test#FSST#Timed Up and Go#FRT'),
-('Ma compo 2', 'ludema', 'Distance doigt sol#Sit and reach'),
-('Ma compo 1', 'ludema', 'One-leg balanc');
+('Ma compo 3', 'ludema', 'Assis-debout 30 secondes#1-RM');
 
 -- --------------------------------------------------------
 
@@ -111,26 +111,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
 --
 
 INSERT INTO `panier` (`catgeorie`) VALUES
-('Romberg test'),
-('One-leg balance'),
-('Sargent test'),
-('Sit and reach'),
-('Chair sit and reach'),
-('Harvard Step Test'),
-('Test de marche de 10 mètres'),
-('Step Test de 3 minutes'),
-('Assis-debout 30 secondes'),
-('Sorensen'),
-('Shirado-Ito'),
-('1-RM'),
-('Abdominal Strength Test'),
-('Hand-Grip'),
-('Seated Medicine Ball Throw'),
-('Distance doigt sol'),
-('Test de marche de 6 minutes'),
-('FSST'),
-('Timed Up and Go'),
-('FRT');
+('Assis-debout 30 secondes');
 
 -- --------------------------------------------------------
 
@@ -337,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`login`, `email`, `prenom`, `nom`, `historique_compo`, `mdp`) VALUES
 ('ludema', 'Ludema@homail.fr', 'lud', 'Ludema', NULL, '$2y$10$TB2wJ5BBH902HDf.jk4DieYfSO78cEjdNB07cx2uAZFrabl5uNLcy'),
-('Walidestsouple', 'walid.messaoudi@hotmail.fr', 'Walid', 'Messaoudi', NULL, '$2y$10$P9BsInNyu5ST5iQsKR0IVeXXlS6VPF93hdR3Lv8muSomzNDHsMvNi');
+('Abd12', 'abder@gmail.fr', 'Abder', 'Meziane', NULL, '$2y$10$jgiq82Bm8oAb0oBm9qUtzeSA5tgSg30erLL4o0zxnz5P/ItaSWLtS');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
