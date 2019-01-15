@@ -20,7 +20,7 @@
       <div class="col-lg-6 col-sm-6 btn-group ">
             <a href="?controller=mesClients&action=formajouterClient" class="btn bcg my-4"><img class="card-img-top" src="Content/image/ajouter_pratiquant.png" alt="Ajouter pratiquant"></a></div>
       <div class="col-lg-6 col-sm-6 btn-group ">
-          <a href="?controller=mesClients" class="btn bcg my-4"><img class="card-img-top" src="Content/image/planning.png" alt="Consulter planning"></a></div>
+          <a href="#" class="btn bcg my-4"><img class="card-img-top" src="Content/image/planning.png" alt="Consulter planning"></a></div>
     </div>
   </div>
 

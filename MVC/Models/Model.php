@@ -125,6 +125,20 @@ class Model {
 		}
 	}
 
+	public function existe_testSelectionne($nomtest){
+		try{
+			$requete = $this->bd->prepare("SELECT EXISTS (SELECT Nom from test where Nom = :nomtest) as nomtest");
+			$requete->bindValue(":nomtest",$nomtest);
+			$requete->execute();
+			return $requete->fetch();
+		}
+		catch (PDOException $e) {
+			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+
+
 	public function get_questions($test){
 		try{
 			$requete = $this->bd->prepare("SELECT * FROM Questions where Test = :test");
@@ -145,7 +159,7 @@ class Model {
 			return $requete->fetchall(PDO::FETCH_ASSOC);
 		}
 		catch (PDOException $e) {
-			die ('Echec get_question erreur n°'. $e->getCode() .':'. $e->getMessage());
+			die ('Echec get_descriptionTest erreur n°'. $e->getCode() .':'. $e->getMessage());
 		}
 	}
 
@@ -159,6 +173,18 @@ class Model {
 		}
 		catch (PDOException $e) {
 			die ('Echec get_detailComposition erreur n°'. $e->getCode() .':'. $e->getMessage());
+		}
+	}
+
+	public function get_email($login){
+		try{
+			$requete = $this->bd->prepare("SELECT email FROM utilisateur where login = :login");
+			$requete->bindValue(":login",$login);
+			$requete->execute();
+			return $requete->fetch(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+			die ('Echec get_email erreur n°'. $e->getCode() .':'. $e->getMessage());
 		}
 	}
 
@@ -201,9 +227,10 @@ class Model {
 		}
 	}
 
-	public function get_nomComposition(){
+	public function get_nomComposition($login){
 	try{
-		$requete = $this->bd->prepare('Select nomComposition FROM Composition');
+		$requete = $this->bd->prepare('Select nomComposition FROM Composition where login = :login');
+		$requete->bindValue(":login",$login);
 		$requete->execute();
 		return $requete->fetchAll(PDO::FETCH_ASSOC);
 	}

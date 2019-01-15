@@ -3,7 +3,12 @@
  			redirection();?>
 <?php //var_dump($questions) ?>
 <?php //var_dump($description)?>
-
+<?php if(!isset($_SESSION['clientChoisi']))
+    header('Location: ?controller=listeTest');
+  ?>
+  <?php if(isset($_SESSION['pdfcree'])&& $_SESSION['pdfcree'])
+          header('Location: ?controller=home');
+  ?>
 	<form class=" offset-lg-3 col-lg-6 formultest" action='?controller=genererpdf' method='post'>
 		<?php for($i=0;$i<$nbtest;$i++) : ?>
 				<h1 class="titretest "> <?=$questions[$i][0]['Test']?></h1> <!-- Ici on affiche le nom du test. -->

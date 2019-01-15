@@ -19,11 +19,9 @@ require('fpdf.php');
             $this->SetLineWidth(0.5);
             // case jaune
             $date=date("d-m-Y");//date actuelle
-
-            $this->MultiCell(94,5,utf8_decode('Date de l\'évaluation : '.$date."\nProfessionnel :".$_SESSION['login']." \nSalle : Petit Dojo \nContact : centre.ludema@gmail.com"),1,'L',false);
+            $this->MultiCell(94,5,utf8_decode('Date de l\'évaluation : '.$date."\nProfessionnel :".$_SESSION['login']." \nContact :" . $_SESSION['emailUser']['email']),1,'L',false);
             $this->Ln(5);
             $this->Image('Utils/HTML2pdf/muscle.png',15,18,-150);
-
             //Espace margin
             $this->Cell(95,5,'',0,0);
             //case mauve
@@ -31,7 +29,7 @@ require('fpdf.php');
             $this->SetFont('Arial','',12);
             $this->SetDrawColor(214, 0, 126  );
             $this->SetLineWidth(0.5);
-            $this->MultiCell(94,5,utf8_decode( "NOM : ESTSOUPLE \nPrénom : Walid \nDate de naissance : 10/12/1957"),1,'L',false);
+            $this->MultiCell(94,5,utf8_decode( "NOM : ".$_SESSION['clientChoisi']['nom'] ." \nPrénom :".$_SESSION['clientChoisi']['prenom'] ." \nAge :".$_SESSION['clientChoisi']['age']),1,'L',false);
             $this->Ln(10);
         }
 

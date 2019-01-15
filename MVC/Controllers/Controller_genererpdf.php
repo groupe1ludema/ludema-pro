@@ -30,6 +30,9 @@ class Controller_genererpdf extends Controller {
   $pdf->AddPage('P','A4',0);
   $pdf->content($data);
   $pdf->Output();
+  unset($_SESSION['clientChoisi']);
+  $_SESSION['pdfcree'] = true;
+  
 
 
 

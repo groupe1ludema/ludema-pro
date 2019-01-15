@@ -8,6 +8,7 @@ class Controller_home extends Controller {
   public function action_home(){
     $m = Model::get_model();
     $this->render2("accueil");
+    unset($_SESSION['pdfcree']);
   }
 
   public function action_inscription(){

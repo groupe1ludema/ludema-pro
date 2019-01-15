@@ -6,11 +6,44 @@ redirection();?>
     <h2 class="title col-lg-12"> Sélection de tests </h2>
   </div>
   <div class="row col-lg-12 offset-md-3 col-md-6 ">
-    <p class="col-lg-6 text-center"> Pour créer un nouveau test, vous devez séléctionner les tests que vous souhaitez effectuer. </br>
+    <p class="col-lg-6 text-center"> Sélectionnez les tests que vous souhaitez effectuer ainsi que le pratiquant concerné. </br>
     Vous avez aussi la possibilité de sauvegarder une composition de test afin d'avoir un raccourci pour vos tests les plus utilisés.</p>
-
   </div>
 </div>
+        <!-- tableau de pratiquants-->
+      <div  class=" offset-lg-3 col-lg-6 formultest">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <body>
+            <?php foreach($listeClients as $client) : ?>
+
+              <?php  if(isset($_SESSION['clientChoisi'])and $client['idClient']==$_SESSION['clientChoisi']['idClient']) : ?>
+                <tr style="background-color:#F5F5DC;">
+                  <td><?= e($client['nom'])?></a></td>
+                  <td><?= e($client['prenom'])?></td>
+                  <td><?= e($client['age'])?></td>
+                  <td><a href="?controller=listeTest&action=clientChoisi&nom=<?= e($client['nom']) ?>&prenom=<?=  e($client['prenom']) ?>&age=<?=  e($client['age']) ?>&idClient=<?= e($client['idClient']) ?>">Choisir</a></td>
+                </tr>
+              <?php else : ?>
+                <tr>
+                  <td><?= e($client['nom'])?></a></td>
+                  <td><?= e($client['prenom'])?></td>
+                  <td><?= e($client['age'])?></td>
+                  <td><a href="?controller=listeTest&action=clientChoisi&nom=<?= e($client['nom']) ?>&prenom=<?=  e($client['prenom']) ?>&age=<?=  e($client['age']) ?>&idClient=<?= e($client['idClient']) ?>">Choisir</a></td>
+                </tr>
+              <?php endif ?>
+              <?php endforeach ?>
+            </tbody>
+          </table>
+
+      </div>
+
 <div class="container">
   <div class="row justify-content-center arbreETtestselection">
     <div class="col-lg-4 col-md-5 col-sm-8 col-xs-8 col-11">
@@ -66,7 +99,7 @@ redirection();?>
               <?php $_SESSION["CompoVide"] = 0?>
             <?php endif ?>
             <?php if(isset($_SESSION["testVide"]) && $_SESSION["testVide"] == 1) : ?>
-              <center> <p> Veuillez selectionner des tests ! </p> </center>
+              <center> <p> Veuillez sélectionner des tests ! </p> </center>
               <?php $_SESSION["testVide"] = 0?>
             <?php endif ?>
             <form class="login-form mb-2" method = "post" action="?controller=listeTest&action=sauvegarderComposition">

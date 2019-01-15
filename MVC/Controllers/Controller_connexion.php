@@ -21,12 +21,12 @@ class Controller_connexion extends Controller {
           $this->render("accueil");
         }
         else{
-          $data=array("mdp"=>"Le mot de passe saisie n'est pas valide","msg2"=>"","msg"=>"");
+          $data=array("mdp"=>"Le mot de passe saisi n'est pas valide","msg2"=>"","msg"=>"");
           $this->render("connexion",$data);
         }
       }
       else{
-        $data=array("msg"=>"Le login saisie n'existe pas !","msg2"=>"","mdp"=>"");
+        $data=array("msg"=>"Le login saisi n'existe pas !","msg2"=>"","mdp"=>"");
         $this->render("connexion",$data);
       }
     }
@@ -53,7 +53,7 @@ class Controller_connexion extends Controller {
         $this->render("inscription",$data);
       }
       else if ($tab2["email_exist"]!=0){
-        $data = ["msg" => "L'email saisie existe déjà !","mdp"=>"","msg2"=>""];
+        $data = ["msg" => "L'email saisi existe déjà !","mdp"=>"","msg2"=>""];
         $this->render("inscription",$data);
       }
 
