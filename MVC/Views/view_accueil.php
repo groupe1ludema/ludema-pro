@@ -26,7 +26,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Historique du Test</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
                     <small class="text-muted">30 sec</small>
                   </div>
@@ -41,7 +41,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Historique du Test</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
                     <small class="text-muted">1 min</small>
                   </div>
@@ -56,7 +56,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Faire Ce test</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Historique du Test</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                     </div>
                     <small class="text-muted">30 mins</small>
                   </div>

@@ -3,31 +3,33 @@ redirection();?>
 
 <div class="container">
   <div class="row">
-    <h2> Nouveau test </h2>
+    <h2> Sélection de tests </h2>
+  </div>
+  <div class="row col-lg-12 offset-md-3 col-md-6 ">
+    <p class="col-lg-6 text-center"> Pour créer un nouveau test, vous devez séléctionner les tests que vous souhaitez effectuer. </br>
+    Vous avez aussi la possibilité de sauvegarder une composition de test afin d'avoir un raccourci pour vos tests les plus utilisés.</p>
 
   </div>
   <div class="row justify-content-center arbreETtestselection">
-    <div class="col-lg-5">
-
-      <ul class="accordion-menu"> <!-- Menu déroulant -->
-        <li> <!-- PARTIE COMPOSITION DE TEST -->
-          <div class="dropdownlink">Vos compositions de test</div>
-
-          <ul class="submenuItems">
-
-            <?php foreach ($nomCompo as $nom): ?>
-              <?php foreach ($nom as $val): ?>
-
-                <a class="aaccordeon" href="?controller=listeTest&action=choixtestCompo&nomComposition=<?= e(urlencode($val))?>"><?= e($val) ?> </a>
-                  <a class="aaccordeon" href='?controller=listeTest&action=supprimerComposition&nomComposition=<?= e(urlencode($val))?>'>
+    <div class="col-lg-4 col-md-5 col-sm-8 col-xs-8 col-11">
+        <div class="card bg-light mb-3">    <!-- PARTIE COMPOSITION DE TEST -->
+          <div class="card-header">  Vos compositions de test </div>
+              <div class="card-body">
+                <?php foreach ($nomCompo as $nom): ?>
+                  <?php foreach ($nom as $val): ?>
+                  <p> <center>
+                    <a href="?controller=listeTest&action=choixtestCompo&nomComposition=<?= e(urlencode($val))?>"><?= e($val) ?> </a>
+                    <a href='?controller=listeTest&action=supprimerComposition&nomComposition=<?= e(urlencode($val))?>'>
                     <img class='icone' src='Content/image/delete.png' alt='supprimer' height=10 width = 10 /></a>
-
+                  </center> </p>
+                  <?php endforeach ?>
                 <?php endforeach ?>
-              <?php endforeach ?>
-            </ul>
+            </div>
+          </div>
+        </div> <!-- FIN PARTIE COMPOSITION DE TEST -->
 
-          </li> <!-- FIN PARTIE COMPOSITION DE TEST -->
-
+        <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+          <ul class="accordion-menu">    <!-- Menu déroulant -->
           <?php foreach ($listeCategory as $category): ?>
             <li>
               <div class="dropdownlink"><?= e($category) ?></div>
@@ -42,7 +44,8 @@ redirection();?>
           <?php endforeach ?>
         </ul>
       </div>
-      <div>
+
+      <div class="col-lg-4 col-md-5 col-sm-8 col-11">
         <div class="card bg-light mb-3">
           <div class="card-header"> <center> Test sélectionnés : </center></div>
           <div class="card-body">
@@ -55,12 +58,13 @@ redirection();?>
             <center><a class="btn btn-primary mb-2" href="?controller=appliquerTest&action=afficherTest">Valider</a> </center>
             <form class="login-form mb-2" method = "post" action="?controller=listeTest&action=sauvegarderComposition">
               <input type="text" placeholder="Nom composition de test" name="nomCompo"/>
-              <input type="submit" name="sauvegarder" class="btn btn-primary" value="Sauvegarder"/>
+              <input type="submit" name="sauvegarder" class="btn btn-primary sauv" value="Sauvegarder"/>
             </form>
 
           </div>
         </div>
       </div>
+
       <?php $_SESSION['listTestSelectionnes']=$tab;?>
     </div>
   </div>

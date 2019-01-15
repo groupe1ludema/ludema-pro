@@ -22,6 +22,8 @@ h2 {
   color: #fff;
 }
 
+
+
 .logo{
   border-radius: 4px;
   padding: 5px;
@@ -95,6 +97,9 @@ footer p {
 
 /* ICI SE TROUVE LE CSS DE LA PAGE NOUVEAU TEST */
 
+.sauv {
+  font-size:0.9em;
+}
 .accordion-menu {
   width: 100%;
   max-width: 350px;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 13 jan. 2019 à 14:12
+-- Généré le :  mar. 15 jan. 2019 à 11:44
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.0.29
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `sexe` varchar(10) NOT NULL,
   `note` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
@@ -67,10 +67,33 @@ INSERT INTO `client` (`idClient`, `loginUtilisateur`, `prenom`, `nom`, `age`, `s
 (20, 'a', 'ali', 'Wali d', 15, 'Homme', 'fbfb'),
 (21, 'a', 'ali', 'Wali d', 15, 'Homme', 'fbfb'),
 (22, 'a', 'ali', 'Wali d', 15, 'Homme', 'fbfb'),
-(23, 'ludema', 'Marie', 'Langele', 18, 'Femme', 'Mal aux jambes'),
 (24, 'Walidestsouple', 'Walid', 'Messaoudi', 19, 'Homme', ''),
 (25, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
-(26, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', '');
+(26, 'Walidestsouple', 'Emeric', 'Dupil', 19, 'Homme', ''),
+(27, 'ludema', 'Ali', 'Jomaa', 15, 'Homme', 'problème de nez'),
+(28, 'ludema', 'Fabien', 'Sam', 13, 'Homme', 'très chinois');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `composition`
+--
+
+DROP TABLE IF EXISTS `composition`;
+CREATE TABLE IF NOT EXISTS `composition` (
+  `nomComposition` varchar(100) DEFAULT NULL,
+  `login` varchar(100) DEFAULT NULL,
+  `detailComposition` text
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `composition`
+--
+
+INSERT INTO `composition` (`nomComposition`, `login`, `detailComposition`) VALUES
+('All tests', 'ludema', 'Distance doigt sol#Seated Medicine Ball Throw#Hand-Grip#Abdominal Strength Test#1-RM#Sorensen#Shirado-Ito#Assis-debout 30 secondes#Step Test de 3 minutes#Test de marche de 10 mètres#Harvard Step Test#Test de marche de 6 minutes#Sit and reach#Chair sit and reach#Sargent test#One-leg balance#Romberg test#FSST#Timed Up and Go#FRT'),
+('Ma compo 2', 'ludema', 'Distance doigt sol#Sit and reach'),
+('Ma compo 1', 'ludema', 'One-leg balanc');
 
 -- --------------------------------------------------------
 
@@ -88,9 +111,26 @@ CREATE TABLE IF NOT EXISTS `panier` (
 --
 
 INSERT INTO `panier` (`catgeorie`) VALUES
+('Romberg test'),
+('One-leg balance'),
+('Sargent test'),
+('Sit and reach'),
+('Chair sit and reach'),
+('Harvard Step Test'),
+('Test de marche de 10 mètres'),
+('Step Test de 3 minutes'),
+('Assis-debout 30 secondes'),
+('Sorensen'),
+('Shirado-Ito'),
+('1-RM'),
+('Abdominal Strength Test'),
+('Hand-Grip'),
+('Seated Medicine Ball Throw'),
 ('Distance doigt sol'),
-('TUG'),
-('FSST');
+('Test de marche de 6 minutes'),
+('FSST'),
+('Timed Up and Go'),
+('FRT');
 
 -- --------------------------------------------------------
 
@@ -110,21 +150,130 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`Intitule`, `Inputtype`, `Test`) VALUES
-('Distance en centimètres', 'int', 'Distance doigt sol'),
-('Douleur durant le test ', 'axe010', 'Distance doigt sol'),
+('Distance (centimètres)', 'int', 'Distance doigt sol'),
+('Douleur durant le test', 'axe010', 'Distance doigt sol'),
 ('Technique utilisée', 'string', 'Distance doigt sol'),
 ('Commentaires', 'commentaire', 'Distance doigt sol'),
-('Temps de réalisation marche rapide (en secondes)', 'int', 'TUG'),
-('Temps de réalisation marche ordinaire (en secondes)', 'int', 'TUG'),
-('Difficulté durant le test ', 'axe010', 'TUG'),
-('Technique utilisée', 'string', 'TUG'),
-('Variante utilisée', 'string', 'TUG'),
-('Commentaires', 'commentaire', 'TUG'),
-(' salut ça va moi aussi ok ', 'axe010', 'FSST'),
-('cc', 'axe010', 'FSST'),
-('ntm ftg oki', 'axe010', 'FSST'),
-('rfeoiurfeoiru', 'axe620', 'FSST'),
-('efoijf zefezf', 'axe620', 'FSST');
+('Distance (centimètres)', 'int', 'Sit and reach'),
+('Douleur durant le test', 'axe010', 'Sit and reach'),
+('Technique utilisée', 'string', 'Sit and reach'),
+('Commentaires', 'commentaire', 'Sit and reach'),
+('Distance (centimètres)', 'int', 'Chair sit and reach'),
+('Douleur durant le test', 'axe010', 'Chair sit and reach'),
+('Technique utilisée', 'string', 'Chair sit and reach'),
+('Commentaires', 'commentaire', 'Chair sit and reach'),
+('Temps de maintien (secondes)', 'int', 'One-leg balance'),
+('Difficulté durant le test', 'axe620', 'One-leg balance'),
+('Technique utilisée', 'string', 'One-leg balance'),
+('Commentaires', 'commentaire', 'One-leg balance'),
+('Temps de maintien', 'int', 'Romberg test'),
+('Difficulté durant le test', 'axe620', 'Romberg test'),
+('Technique utilisée', 'string', 'Romberg test'),
+('Commentaires', 'commentaire', 'Romberg test'),
+('Temps de réalisation (secondes)', 'int', 'FSST'),
+('Difficulté durant le test', 'axe620', 'FSST'),
+('Technique utilisée', 'string', 'FSST'),
+('Variante utilisée', 'string', 'FSST'),
+('Commentaires', 'commentaire', 'FSST'),
+('Temps de réalisation marche rapide (secondes)', 'int', 'Timed Up and Go'),
+('Temps de réalisation marche ordinaire (secondes)', 'int', 'Timed Up and Go'),
+('Difficulté durant le test', 'axe620', 'Timed Up and Go'),
+('Technique utilisée', 'string', 'Timed Up and Go'),
+('Variante utilisée', 'string', 'Timed Up and Go'),
+('Commentaires', 'commentaire', 'Timed Up and Go'),
+('Distance antérieure réalisée (centimètres)', 'int', 'FRT'),
+('Distance postérieure réalisée (centimètres)', 'int', 'FRT'),
+('Distance latérale D réalisée (centimètres)', 'int', 'FRT'),
+('Distance latérale G réalisée (centimètres)', 'int', 'FRT'),
+('Difficulté durant le test', 'axe620', 'FRT'),
+('Technique utilisée', 'string', 'FRT'),
+('Variante utilisée', 'string', 'FRT'),
+('Commentaires', 'commentaire', 'FRT'),
+('Distance (mètres)', 'int', 'Test de marche de 6 minutes'),
+('Douleur avant test', 'axe010', 'Test de marche de 6 minutes'),
+('Douleur après test', 'axe010', 'Test de marche de 6 minutes'),
+('Essoufflement avant test', 'axe010', 'Test de marche de 6 minutes'),
+('Essoufflement après test', 'axe010', 'Test de marche de 6 minutes'),
+('FC repos (BPM)', 'int', 'Test de marche de 6 minutes'),
+('FC post test 1 minute (BPM)', 'int', 'Test de marche de 6 minutes'),
+('FC post test 5 minutes (BPM)', 'int', 'Test de marche de 6 minutes'),
+('Saturation pré-test (% SaO2)', 'int', 'Test de marche de 6 minutes'),
+('Saturation post test 1 minute (% SaO2)', 'int', 'Test de marche de 6 minutes'),
+('Saturation post test 5 minutes (% SaO2)', 'int', 'Test de marche de 6 minutes'),
+('TA pré test (mmHg) Ex : 15-9', 'int', 'Test de marche de 6 minutes'),
+('TA post test 1 minute (mmHg)', 'int', 'Test de marche de 6 minutes'),
+('TA post test 5 minutes (mmHg)', 'int', 'Test de marche de 6 minutes'),
+('Nombre d\'arrêts', 'int', 'Test de marche de 6 minutes'),
+('Temps des arrêts (secondes)', 'int', 'Test de marche de 6 minutes'),
+('Commentaires', 'commentaire', 'Test de marche de 6 minutes'),
+('Durée du test (secondes) - MAX 300', 'int', 'Harvard Step Test'),
+('Douleur avant test', 'axe010', 'Harvard Step Test'),
+('Douleur après test', 'axe010', 'Harvard Step Test'),
+('Essoufflement avant test', 'axe010', 'Harvard Step Test'),
+('Essoufflement après test', 'axe010', 'Harvard Step Test'),
+('FC repos (BPM)', 'int', 'Harvard Step Test'),
+('FC post test de 60 secondes à 90 secondes (BPM)', 'int', 'Harvard Step Test'),
+('FC post test 120 secondes à 150 secondes (BPM)', 'int', 'Harvard Step Test'),
+('FC post test 180 secondes à 210 secondes (BPM)', 'int', 'Harvard Step Test'),
+('Commentaires', 'commentaire', 'Harvard Step Test'),
+('Temps marche ordinaire (secondes)', 'int', 'Test de marche de 10 mètres'),
+('Temps marche rapide (secondes)', 'int', 'Test de marche de 10 mètres'),
+('Commentaires', 'commentaire', 'Test de marche de 10 mètres'),
+('Durée du test (secondes) - MAX 180', 'int', 'Step Test de 3 minutes'),
+('Douleur avant test', 'axe010', 'Step Test de 3 minutes'),
+('Douleur après test', 'axe010', 'Step Test de 3 minutes'),
+('Essoufflement avant test', 'axe010', 'Step Test de 3 minutes'),
+('Essoufflement après test', 'axe010', 'Step Test de 3 minutes'),
+('FC repos (BPM)', 'int', 'Step Test de 3 minutes'),
+('FC post test 1 minute (BPM)', 'int', 'Step Test de 3 minutes'),
+('FC post test 5 minutes (BPM)', 'int', 'Step Test de 3 minutes'),
+('Commentaires', 'commentaire', 'Step Test de 3 minutes'),
+('Nombre de relevés de chaise', 'string', 'Assis-debout 30 secondes'),
+('Douleur avant test', 'axe010', 'Assis-debout 30 secondes'),
+('Douleur après test', 'axe010', 'Assis-debout 30 secondes'),
+('Essoufflement avant test', 'axe010', 'Assis-debout 30 secondes'),
+('Essoufflement après test', 'axe010', 'Assis-debout 30 secondes'),
+('FC repos (BPM)', 'int', 'Assis-debout 30 secondes'),
+('FC post test à 1 minute (BPM)', 'int', 'Assis-debout 30 secondes'),
+('FC poste test à 5 minutes (BPM)', 'int', 'Assis-debout 30 secondes'),
+('Difficulté de la tâche', 'axe620', 'Assis-debout 30 secondes'),
+('Commentaires', 'commentaire', 'Assis-debout 30 secondes'),
+('Temps de maintien (secondes)', 'int', 'Shirado-Ito'),
+('Douleur avant test', 'axe010', 'Shirado-Ito'),
+('Douleur après test', 'axe010', 'Shirado-Ito'),
+('Commentaires', 'commentaire', 'Shirado-Ito'),
+('Temps de maintien', 'int', 'Sorensen'),
+('Douleur avant test', 'axe010', 'Sorensen'),
+('Douleur après test', 'axe010', 'Sorensen'),
+('Commentaires', 'commentaire', 'Sorensen'),
+('Nombre de répétitions (nombre<10)', 'int', '1-RM'),
+('Masse (Kg)', 'int', '1-RM'),
+('Type de machine', 'string', '1-RM'),
+('Douleur avant test', 'axe010', '1-RM'),
+('Douleur après test', 'axe010', '1-RM'),
+('Difficulté', 'axe620', '1-RM'),
+('Commentaires', 'commentaire', '1-RM'),
+('Essai 1 (Kg)', 'int', 'Hand-Grip'),
+('Essai 2 (Kg)', 'int', 'Hand-Grip'),
+('Essai 3 (Kg)', 'int', 'Hand-Grip'),
+('Douleur avant test', 'axe010', 'Hand-Grip'),
+('Douleur après test', 'axe010', 'Hand-Grip'),
+('Difficulté de la tâche', 'axe620', 'Hand-Grip'),
+('Commentaires', 'commentaire', 'Hand-Grip'),
+('Stades', 'axe17', 'Abdominal Strength Test'),
+('Difficulté', 'axe620', 'Abdominal Strength Test'),
+('Commentaires', 'commentaire', 'Abdominal Strength Test'),
+('Masse Medicine Ball (Kg)', 'int', 'Seated Medicine Ball Throw'),
+('Distance (mètres)', 'int', 'Seated Medicine Ball Throw'),
+('Position', 'string', 'Seated Medicine Ball Throw'),
+('Difficulté', 'axe620', 'Seated Medicine Ball Throw'),
+('Technique de lancé', 'string', 'Seated Medicine Ball Throw'),
+('Commentaires', 'commentaire', 'Seated Medicine Ball Throw'),
+('Distance réalisée (centimètres)', 'int', 'Sargent test'),
+('Difficulté durant le test', 'axe620', 'Sargent test'),
+('Technique utilisée', 'string', 'Sargent test'),
+('Variante utilisée', 'string', 'Sargent test'),
+('Commentaires', 'commentaire', 'Sargent test');
 
 -- --------------------------------------------------------
 
@@ -144,15 +293,26 @@ CREATE TABLE IF NOT EXISTS `test` (
 --
 
 INSERT INTO `test` (`Categorie`, `Nom`, `description`) VALUES
-('Equilibre', 'One-leg balanc', NULL),
-('Equilibre', 'FSST', NULL),
-('Equilibre', 'GUG', NULL),
-('Souplesse', 'Distance doigt sol', 'Pieds joints, basculez lentement le buste vers l\'avant en déroulant le dos, bras tendus, pour tenter de toucher le sol avec les doigts. Il est impératif de ne pas plier les genoux.\r\n\r\nLa distance séparant l\'extrémité des doigts et le sol est mesurée à  la règle (cm) et correspond à  la va'),
+('Endurance Cardio-respiratoire', 'Test de marche de 6 minutes', NULL),
+('Endurance Cardio-respiratoire', 'Harvard Step Test', NULL),
+('Endurance Cardio-respiratoire', 'Test de marche de 10 mètres', NULL),
+('Endurance Cardio-respiratoire', 'Step Test de 3 minutes', NULL),
+('Endurance de Force', 'Assis-debout 30 secondes', NULL),
+('Endurance de Force', 'Shirado-Ito', NULL),
+('Endurance de Force', 'Sorensen', NULL),
+('Force musculaire', '1-RM', NULL),
+('Force musculaire', 'Hand-Grip', NULL),
+('Force musculaire', 'Abdominal Strength Test', NULL),
+('Force musculaire', 'Seated Medicine Ball Throw', NULL),
+('Souplesse', 'Distance doigt sol', NULL),
 ('Souplesse', 'Sit and reach', NULL),
-('Agilité', 'FSST', NULL),
-('Agilité', 'TUG', 'Dans ce test, la personne doit se relever de la position assise et marcher à  trois mètres de la chaise pour ensuite revenir sur ses pas (tourne à  180 degrés) et s\'assoir de nouveau. Le temps que la personne met à  accomplir cette activité est chronométré par l\'évaluateur.'),
-('Agilité', 'GUG', NULL),
-('Souplesse', 'Chair sit and reach', NULL);
+('Souplesse', 'Chair sit and reach', NULL),
+('Puissance', 'Sargent test', NULL),
+('Equilibre', 'One-leg balance', NULL),
+('Equilibre', 'Romberg test', NULL),
+('Equilibre', 'FSST', NULL),
+('Equilibre', 'Timed Up and Go', NULL),
+('Equilibre', 'FRT', NULL);
 
 -- --------------------------------------------------------
 
